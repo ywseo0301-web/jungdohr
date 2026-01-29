@@ -1,123 +1,185 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>정도HR | Coming Soon</title>
+
   <style>
     :root{
       --bg1:#071a2a;
       --bg2:#061423;
       --gold:#d8b04b;
       --text:#e9eef5;
-      --muted:rgba(233,238,245,.75);
+      --muted:rgba(233,238,245,.78);
+      --line:rgba(216,176,75,.22);
     }
     *{box-sizing:border-box;}
+
     body{
       margin:0;
       min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background: radial-gradient(1200px 600px at 50% 35%, #0b2a40 0%, var(--bg1) 45%, var(--bg2) 100%);
+      background: radial-gradient(1200px 600px at 50% 30%, #0b2a40 0%, var(--bg1) 45%, var(--bg2) 100%);
       color:var(--text);
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif;
-      line-height:1.6;
+      line-height:1.7;
     }
+
     .wrap{
-      width:min(920px, 92vw);
-      padding:72px 24px;
+      width:min(1000px,92vw);
+      margin:0 auto;
+      padding:28px 18px 70px;
+    }
+
+    /* 상단 메뉴 */
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:14px 18px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(0,0,0,.14);
+      backdrop-filter: blur(6px);
+      position:sticky;
+      top:16px;
+      z-index:10;
+    }
+
+    .brand{
+      font-weight:900;
+      color:var(--gold);
+      text-decoration:none;
+      letter-spacing:-.3px;
+      font-size:18px;
+    }
+
+    .links{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .links a{
+      color:var(--text);
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+      opacity:.85;
+      padding:6px 2px;
+    }
+    .links a:hover{opacity:1;}
+    .links a.active{color:var(--gold); opacity:1;}
+
+    /* 메인 콘텐츠 */
+    .hero{
+      margin-top:34px;
+      padding:70px 18px 40px;
       text-align:center;
     }
-    h1{
-      margin:0 0 6px 0;
-      font-size:clamp(34px, 4vw, 54px);
-      letter-spacing:-0.5px;
+
+    .logo{
+      font-size:56px;
+      font-weight:900;
+      letter-spacing:-.8px;
       color:var(--gold);
+      margin: 40px 0 10px;
+    }
+
+    .subtitle{
+      margin:0 0 40px;
+      font-size:20px;
       font-weight:800;
+      letter-spacing:-.2px;
+      color:rgba(233,238,245,.92);
     }
-    h2{
-      margin:0 0 26px 0;
-      font-size:clamp(18px, 2.2vw, 24px);
-      font-weight:700;
-      color:var(--text);
-      opacity:.95;
-    }
-    .lead{
-      margin:18px auto 0;
-      max-width:720px;
-      font-size:clamp(16px, 1.6vw, 18px);
-      color:var(--text);
-      opacity:.92;
+
+    .text{
+      color:var(--muted);
+      font-size:16px;
+      margin: 14px 0;
       white-space:pre-line;
     }
-    .box{
-      margin:30px auto 0;
-      max-width:760px;
-      padding:18px 20px;
-      border:1px solid rgba(216,176,75,.22);
-      border-radius:14px;
-      background: rgba(0,0,0,.12);
-      backdrop-filter: blur(6px);
+
+    .card{
+      width:min(720px, 92vw);
+      margin: 44px auto 0;
+      padding:22px 22px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(0,0,0,.12);
       text-align:left;
     }
-    .box ul{
+
+    .card ul{
       margin:0;
       padding-left:18px;
-      color:var(--text);
-      opacity:.92;
-      font-size:16px;
+      color:rgba(233,238,245,.88);
+      font-size:15px;
     }
-    .open{
-      margin:28px 0 0;
-      font-weight:800;
-      font-size:18px;
-      color:var(--text);
-      opacity:.95;
-    }
-    .note{
-      margin:6px 0 0;
-      color:var(--muted);
-      font-size:14px;
-    }
+    .card li{margin:8px 0;}
+
     footer{
-      margin-top:46px;
-      color:rgba(233,238,245,.55);
+      margin-top:70px;
+      text-align:center;
       font-size:13px;
+      color:rgba(233,238,245,.55);
+      padding-bottom: 10px;
     }
   </style>
 </head>
-<body>
-  <main class="wrap">
-    <h1>정도HR</h1>
-    <h2>제조·건설 현장을 기준으로 운영되는 인력 파트너</h2>
 
-    <div class="lead">
+<body>
+  <div class="wrap">
+
+    <!-- ✅ 메뉴(상단 네비) -->
+    <nav class="nav">
+      <a href="index.html" class="brand">정도HR</a>
+      <div class="links">
+        <a href="index.html" class="active">메인</a>
+        <a href="about.html">회사소개</a>
+        <a href="service.html">서비스</a>
+        <a href="location.html">오시는길</a>
+        <a href="notice.html">공지</a>
+      </div>
+    </nav>
+
+    <!-- ✅ 메인 본문 -->
+    <main class="hero">
+      <div class="logo">정도HR</div>
+      <div class="subtitle">제조·건설 현장을 기준으로 운영되는 인력 파트너</div>
+
+      <div class="text">
 제조업과 건설 현장은
 단순한 인력 수급보다
 근태, 안전, 숙련도, 이탈 관리가 더 중요합니다.
+      </div>
 
+      <div class="text">
 정도HR은 인력을 단순히 공급하지 않습니다.
 현장 조건에 맞춰
 인력 운용 구조를 설계하고 관리합니다.
+      </div>
 
+      <div class="text">
 제조업(생산·설비·물류) 및
 건설업(현장 보조·기능 인력)
 운영 중심 인력공급 및 관리 지원
-    </div>
+      </div>
 
-    <section class="box" aria-label="운영 원칙">
-      <ul>
-        <li>근태·안전·이탈을 고려한 인력 관리</li>
-        <li>단기 투입이 아닌 현장 안정성 우선</li>
-        <li>책임 없는 중개를 지양합니다</li>
-      </ul>
-    </section>
+      <div class="card">
+        <ul>
+          <li>근태·안전·이탈을 고려한 인력 관리</li>
+          <li>단기 투입이 아닌 현장 안정성 우선</li>
+          <li>책임 없는 중개를 지양합니다</li>
+        </ul>
+      </div>
 
-    <div class="open">2026년 정식 오픈 예정</div>
-    <div class="note">오픈 전 사전 상담 및 협업 문의 가능합니다.</div>
+      <footer>© Jungdo HR. All rights reserved.</footer>
+    </main>
 
-    <footer>© Jungdo HR. All rights reserved.</footer>
-  </main>
+  </div>
 </body>
 </html>
