@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>정도HR | 오시는길</title>
+
+  <style>
+    :root{
+      --bg1:#071a2a; --bg2:#061423; --gold:#d8b04b;
+      --text:#e9eef5; --muted:rgba(233,238,245,.78); --line:rgba(216,176,75,.22);
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0; min-height:100vh;
+      background: radial-gradient(1200px 600px at 50% 30%, #0b2a40 0%, var(--bg1) 45%, var(--bg2) 100%);
+      color:var(--text);
+      font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",Arial,sans-serif;
+      line-height:1.7;
+    }
+    .wrap{width:min(1000px,92vw); margin:0 auto; padding:28px 18px 70px;}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      padding:14px 18px; border:1px solid var(--line); border-radius:16px;
+      background:rgba(0,0,0,.14); backdrop-filter: blur(6px);
+      position:sticky; top:16px; z-index:10;
+    }
+    .brand{font-weight:900; color:var(--gold); text-decoration:none; font-size:18px;}
+    .links{display:flex; gap:16px; flex-wrap:wrap; justify-content:flex-end;}
+    .links a{color:var(--text); text-decoration:none; font-weight:700; font-size:14px; opacity:.85; padding:6px 2px;}
+    .links a:hover{opacity:1;}
+    .links a.active{color:var(--gold); opacity:1;}
+
+    .container{margin-top:34px; padding:50px 10px; text-align:center;}
+    h1{margin:30px 0 12px; font-size:42px; letter-spacing:-.5px;}
+    .sub{color:var(--muted); margin:0 0 34px; font-size:16px;}
+
+    .box{
+      width:min(900px, 92vw);
+      margin:0 auto;
+      padding:22px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(0,0,0,.12);
+      text-align:left;
+    }
+    .row{display:flex; gap:18px; flex-wrap:wrap;}
+    .col{flex:1; min-width:260px;}
+    .label{color:rgba(233,238,245,.9); font-weight:800; margin-bottom:6px;}
+    .value{color:var(--muted); margin:0 0 14px;}
+
+    .map{
+      margin-top:16px;
+      height:320px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      display:flex; align-items:center; justify-content:center;
+      color:rgba(233,238,245,.7);
+      font-size:14px;
+    }
+
+    .note{margin-top:14px; color:rgba(233,238,245,.65); font-size:13px;}
+    footer{margin-top:70px; text-align:center; font-size:13px; color:rgba(233,238,245,.55);}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html" class="brand">정도HR</a>
+      <div class="links">
+        <a href="index.html">메인</a>
+        <a href="about.html">회사소개</a>
+        <a href="service.html">서비스</a>
+        <a href="location.html" class="active">오시는길</a>
+        <a href="notice.html">공지</a>
+      </div>
+    </nav>
+
+    <main class="container">
+      <h1>오시는길</h1>
+      <p class="sub">현재는 오픈 준비 단계입니다. 주소/연락처는 확정되는 대로 반영됩니다.</p>
+
+      <div class="box">
+        <div class="row">
+          <div class="col">
+            <div class="label">주소</div>
+            <p class="value">추후 확정 예정 (천안/아산 권역 중심)</p>
+
+            <div class="label">연락</div>
+            <p class="value">사전 협업 문의는 준비 중입니다.</p>
+          </div>
+
+          <div class="col">
+            <div class="label">안내</div>
+            <p class="value">정식 오픈 전에는 현장 상담/협업 중심으로 운영됩니다.</p>
+
+            <div class="label">비고</div>
+            <p class="value">지도(카카오/네이버)는 주소 확정 후 바로 삽입 가능합니다.</p>
+          </div>
+        </div>
+
+        <div class="map">지도 영역 (주소 확정 후 삽입)</div>
+        <div class="note">원하시면 “카카오 지도 / 네이버 지도” 중 원하는 걸로 복붙 코드까지 바로 만들어드리겠습니다.</div>
+      </div>
+
+      <footer>© Jungdo HR. All rights reserved.</footer>
+    </main>
+  </div>
+</body>
+</html>
