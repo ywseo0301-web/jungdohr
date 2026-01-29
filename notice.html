@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>정도HR | 공지</title>
+
+  <style>
+    :root{
+      --bg1:#071a2a; --bg2:#061423; --gold:#d8b04b;
+      --text:#e9eef5; --muted:rgba(233,238,245,.78); --line:rgba(216,176,75,.22);
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0; min-height:100vh;
+      background: radial-gradient(1200px 600px at 50% 30%, #0b2a40 0%, var(--bg1) 45%, var(--bg2) 100%);
+      color:var(--text);
+      font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",Arial,sans-serif;
+      line-height:1.7;
+    }
+    .wrap{width:min(1000px,92vw); margin:0 auto; padding:28px 18px 70px;}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      padding:14px 18px; border:1px solid var(--line); border-radius:16px;
+      background:rgba(0,0,0,.14); backdrop-filter: blur(6px);
+      position:sticky; top:16px; z-index:10;
+    }
+    .brand{font-weight:900; color:var(--gold); text-decoration:none; font-size:18px;}
+    .links{display:flex; gap:16px; flex-wrap:wrap; justify-content:flex-end;}
+    .links a{color:var(--text); text-decoration:none; font-weight:700; font-size:14px; opacity:.85; padding:6px 2px;}
+    .links a:hover{opacity:1;}
+    .links a.active{color:var(--gold); opacity:1;}
+
+    .container{margin-top:34px; padding:50px 10px; text-align:center;}
+    h1{margin:30px 0 12px; font-size:42px; letter-spacing:-.5px;}
+    .sub{color:var(--muted); margin:0 0 34px; font-size:16px;}
+
+    .list{
+      width:min(900px, 92vw);
+      margin:0 auto;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(0,0,0,.12);
+      overflow:hidden;
+      text-align:left;
+    }
+    .item{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 18px;
+      border-top:1px solid rgba(216,176,75,.14);
+    }
+    .item:first-child{border-top:none;}
+    .title{font-weight:800; color:rgba(233,238,245,.92);}
+    .date{color:rgba(233,238,245,.6); font-size:13px; white-space:nowrap;}
+    .desc{margin:6px 0 0; color:var(--muted); font-size:13px;}
+
+    footer{margin-top:70px; text-align:center; font-size:13px; color:rgba(233,238,245,.55);}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html" class="brand">정도HR</a>
+      <div class="links">
+        <a href="index.html">메인</a>
+        <a href="about.html">회사소개</a>
+        <a href="service.html">서비스</a>
+        <a href="location.html">오시는길</a>
+        <a href="notice.html" class="active">공지</a>
+      </div>
+    </nav>
+
+    <main class="container">
+      <h1>공지</h1>
+      <p class="sub">오픈 준비 및 운영 관련 공지를 순차적으로 업데이트합니다.</p>
+
+      <div class="list">
+        <div class="item">
+          <div>
+            <div class="title">[안내] 정도HR 사이트 오픈 준비 중</div>
+            <p class="desc">2026년 정식 오픈 전까지 사전 상담/협업 문의 중심으로 운영됩니다.</p>
+          </div>
+          <div class="date">2026-01-29</div>
+        </div>
+
+        <div class="item">
+          <div>
+            <div class="title">[예정] 서비스 페이지 업데이트</div>
+            <p class="desc">제조·건설 현장별 운영 지원 항목을 정리해 순차 반영합니다.</p>
+          </div>
+          <div class="date">추후 공지</div>
+        </div>
+
+        <div class="item">
+          <div>
+            <div class="title">[예정] 오시는길(주소/지도) 등록</div>
+            <p class="desc">사무실 확정 후 지도/교통 안내를 등록합니다.</p>
+          </div>
+          <div class="date">추후 공지</div>
+        </div>
+      </div>
+
+      <footer>© Jungdo HR. All rights reserved.</footer>
+    </main>
+  </div>
+</body>
+</html>
