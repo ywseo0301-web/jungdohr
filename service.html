@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>정도HR | 서비스</title>
+
+  <style>
+    :root{
+      --bg1:#071a2a; --bg2:#061423; --gold:#d8b04b;
+      --text:#e9eef5; --muted:rgba(233,238,245,.78); --line:rgba(216,176,75,.22);
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0; min-height:100vh;
+      background: radial-gradient(1200px 600px at 50% 30%, #0b2a40 0%, var(--bg1) 45%, var(--bg2) 100%);
+      color:var(--text);
+      font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",Arial,sans-serif;
+      line-height:1.7;
+    }
+    .wrap{width:min(1000px,92vw); margin:0 auto; padding:28px 18px 70px;}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      padding:14px 18px; border:1px solid var(--line); border-radius:16px;
+      background:rgba(0,0,0,.14); backdrop-filter: blur(6px);
+      position:sticky; top:16px; z-index:10;
+    }
+    .brand{font-weight:900; color:var(--gold); text-decoration:none; font-size:18px;}
+    .links{display:flex; gap:16px; flex-wrap:wrap; justify-content:flex-end;}
+    .links a{color:var(--text); text-decoration:none; font-weight:700; font-size:14px; opacity:.85; padding:6px 2px;}
+    .links a:hover{opacity:1;}
+    .links a.active{color:var(--gold); opacity:1;}
+
+    .container{margin-top:34px; padding:50px 10px; text-align:center;}
+    h1{margin:30px 0 12px; font-size:42px; letter-spacing:-.5px;}
+    .sub{color:var(--muted); margin:0 0 34px; font-size:16px;}
+
+    .grid{
+      display:grid; gap:16px;
+      grid-template-columns: repeat(12, 1fr);
+      width:min(900px, 92vw);
+      margin:0 auto;
+      text-align:left;
+    }
+    .card{
+      grid-column: span 6;
+      padding:18px 18px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(0,0,0,.12);
+    }
+    .card h2{margin:0 0 6px; font-size:18px; color:rgba(233,238,245,.95);}
+    .card p{margin:0; color:var(--muted); font-size:14px;}
+    .badge{display:inline-block; margin-top:10px; padding:6px 10px; border:1px solid var(--line); border-radius:999px; font-size:12px; color:rgba(233,238,245,.85);}
+
+    .full{grid-column: span 12;}
+    footer{margin-top:70px; text-align:center; font-size:13px; color:rgba(233,238,245,.55);}
+    @media (max-width:800px){ .card{grid-column: span 12;} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html" class="brand">정도HR</a>
+      <div class="links">
+        <a href="index.html">메인</a>
+        <a href="about.html">회사소개</a>
+        <a href="service.html" class="active">서비스</a>
+        <a href="location.html">오시는길</a>
+        <a href="notice.html">공지</a>
+      </div>
+    </nav>
+
+    <main class="container">
+      <h1>서비스</h1>
+      <p class="sub">현장 조건에 맞춘 “운영 중심” 인력 공급 및 관리 지원</p>
+
+      <section class="grid">
+        <div class="card">
+          <h2>제조업 인력 운영</h2>
+          <p>생산·설비·물류 라인 특성에 맞춰 투입 기준과 관리 포인트를 설계합니다.</p>
+          <span class="badge">생산 / 설비 / 물류</span>
+        </div>
+
+        <div class="card">
+          <h2>건설 현장 인력 지원</h2>
+          <p>현장 보조·기능 인력 투입 시 안전·근태·이탈 관리 기준을 함께 운영합니다.</p>
+          <span class="badge">현장 보조 / 기능 인력</span>
+        </div>
+
+        <div class="card">
+          <h2>근태·이탈 관리</h2>
+          <p>단기 투입보다 현장 안정성을 우선하여 출근·이탈 리스크를 줄입니다.</p>
+          <span class="badge">현장 안정성</span>
+        </div>
+
+        <div class="card">
+          <h2>안전 기준 준수 지원</h2>
+          <p>현장 규정 기반으로 투입 전 안내·준수 체계를 준비합니다.</p>
+          <span class="badge">안전 / 규정</span>
+        </div>
+
+        <div class="card full">
+          <h2>사전 상담(오픈 전)</h2>
+          <p>2026년 정식 오픈 전 사전 상담 및 협업 문의가 가능합니다. 준비 단계부터 현장 운영 구조를 함께 설계합니다.</p>
+          <span class="badge">사전 협업 가능</span>
+        </div>
+      </section>
+
+      <footer>© Jungdo HR. All rights reserved.</footer>
+    </main>
+  </div>
+</body>
+</html>
