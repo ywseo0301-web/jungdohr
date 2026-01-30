@@ -28,7 +28,7 @@
     .wrap{
       width:min(1000px,92vw);
       margin:0 auto;
-      padding:28px 18px 70px;
+      padding:18px 18px 60px; /* ⬅ 상단 여백 축소 */
     }
 
     /* 상단 메뉴 */
@@ -53,9 +53,6 @@
       text-decoration:none;
       letter-spacing:-.3px;
       font-size:18px;
-      display:flex;
-      align-items:center;
-      gap:10px;
     }
 
     .links{
@@ -71,32 +68,29 @@
       font-weight:700;
       font-size:14px;
       opacity:.85;
-      padding:6px 2px;
     }
-    .links a:hover{opacity:1;}
     .links a.active{color:var(--gold); opacity:1;}
 
-    /* 메인 콘텐츠 */
+    /* 메인 */
     .hero{
-      margin-top:34px;
-      padding:70px 18px 40px;
+      margin-top:10px;      /* ⬅ 기존 34px 제거 */
+      padding:20px 18px 40px; /* ⬅ 기존 70px 제거 */
       text-align:center;
     }
 
-    /* ✅ 메인 로고 이미지(중앙) */
+    /* 로고 */
     .logoImg{
       display:block;
-      margin: 38px auto 18px;
-      width: min(420px, 72vw);   /* 화면에 맞춰 자동 축소 */
+      margin: 20px auto 16px; /* ⬅ 로고 위 여백 최소화 */
+      width: min(420px, 72vw);
       height:auto;
       filter: drop-shadow(0 14px 24px rgba(0,0,0,.35));
     }
 
     .subtitle{
-      margin:0 0 40px;
+      margin:0 0 32px;
       font-size:20px;
       font-weight:800;
-      letter-spacing:-.2px;
       color:rgba(233,238,245,.92);
     }
 
@@ -109,28 +103,19 @@
 
     .card{
       width:min(720px, 92vw);
-      margin: 44px auto 0;
-      padding:22px 22px;
+      margin: 36px auto 0;
+      padding:22px;
       border:1px solid var(--line);
       border-radius:16px;
       background:rgba(0,0,0,.12);
       text-align:left;
     }
 
-    .card ul{
-      margin:0;
-      padding-left:18px;
-      color:rgba(233,238,245,.88);
-      font-size:15px;
-    }
-    .card li{margin:8px 0;}
-
     footer{
-      margin-top:70px;
+      margin-top:60px;
       text-align:center;
       font-size:13px;
       color:rgba(233,238,245,.55);
-      padding-bottom: 10px;
     }
   </style>
 </head>
@@ -150,8 +135,6 @@
     </nav>
 
     <main class="hero">
-
-      <!-- ✅ 로고 파일은 index.html과 같은 폴더에 logo.png로 업로드 -->
       <img src="logo.png" alt="정도HR 로고" class="logoImg" />
 
       <div class="subtitle">제조·건설 현장을 기준으로 운영되는 인력 파트너</div>
@@ -163,10 +146,6 @@
       <div class="text">정도HR은 인력을 단순히 공급하지 않습니다.
 현장 조건에 맞춰
 인력 운용 구조를 설계하고 관리합니다.</div>
-
-      <div class="text">제조업(생산·설비·물류) 및
-건설업(현장 보조·기능 인력)
-운영 중심 인력공급 및 관리 지원</div>
 
       <div class="card">
         <ul>
