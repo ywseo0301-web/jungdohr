@@ -2,148 +2,140 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>정도HR | 회사소개</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>정도HR | 회사소개</title>
 
   <style>
-    body {
-      margin: 0;
-      font-family: "Pretendard", "Noto Sans KR", sans-serif;
-      background: radial-gradient(circle at top, #0b1f33 0%, #071626 60%);
-      color: #e6ecf1;
+    :root{
+      --bg1:#071a2a; --bg2:#061423; --gold:#d8b04b;
+      --text:#e9eef5; --muted:rgba(233,238,245,.78); --line:rgba(216,176,75,.22);
+      --card:rgba(0,0,0,.14);
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0; min-height:100vh;
+      background: radial-gradient(1200px 600px at 50% 30%, #0b2a40 0%, var(--bg1) 45%, var(--bg2) 100%);
+      color:var(--text);
+      font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",Arial,sans-serif;
+      line-height:1.7;
+    }
+    .wrap{width:min(1100px,92vw); margin:0 auto; padding:28px 18px 70px;}
+
+    /* ✅ 메인과 동일한 상단 네비(중앙/박스형) */
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      padding:14px 18px; border:1px solid var(--line); border-radius:16px;
+      background:var(--card); backdrop-filter: blur(6px);
+      position:sticky; top:16px; z-index:10;
+    }
+    .brand{font-weight:900; color:var(--gold); text-decoration:none; font-size:18px;}
+    .links{display:flex; gap:18px; flex-wrap:wrap; justify-content:flex-end;}
+    .links a{
+      color:var(--text); text-decoration:none; font-weight:800; font-size:14px;
+      opacity:.85; padding:6px 2px;
+    }
+    .links a:hover{opacity:1;}
+    .links a.active{color:var(--gold); opacity:1; border-bottom:2px solid var(--gold); padding-bottom:4px;}
+
+    .hero{padding:56px 10px 20px; text-align:center;}
+    h1{margin:0 0 10px; font-size:40px; letter-spacing:-.6px;}
+    .sub{margin:0 auto; color:var(--muted); font-size:16px; max-width:800px;}
+
+    .card{
+      margin:26px auto 0;
+      width:min(950px, 92vw);
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:rgba(0,0,0,.12);
+      padding:26px 22px;
+    }
+    .lead{
+      margin:0;
+      color:rgba(233,238,245,.92);
+      font-weight:700;
+      text-align:center;
     }
 
-    /* 상단 메뉴 */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 40px;
-      background: rgba(7, 22, 38, 0.85);
-      backdrop-filter: blur(6px);
-      z-index: 100;
+    .grid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
     }
+    @media (max-width:820px){ .grid{grid-template-columns:1fr;} }
 
-    .brand {
-      font-size: 22px;
-      font-weight: 700;
-      color: #d4af37;
-      text-decoration: none;
+    .box{
+      border:1px solid rgba(216,176,75,.18);
+      border-radius:16px;
+      padding:18px 18px;
+      background:rgba(255,255,255,.03);
     }
+    .ttl{margin:0 0 8px; font-weight:900; color:rgba(233,238,245,.95);}
+    .txt{margin:0; color:var(--muted);}
 
-    .links a {
-      margin-left: 24px;
-      color: #c9d3dc;
-      text-decoration: none;
-      font-size: 15px;
-    }
+    ul{margin:12px 0 0; padding-left:18px; color:rgba(233,238,245,.88);}
+    li{margin:6px 0;}
 
-    .links a.active {
-      color: #ffffff;
-      border-bottom: 2px solid #d4af37;
-      padding-bottom: 4px;
-    }
-
-    /* 본문 */
-    .container {
-      max-width: 880px;
-      margin: 140px auto 120px;
-      padding: 0 20px;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 42px;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 17px;
-      line-height: 1.9;
-      color: #cfd8df;
-      margin-bottom: 22px;
-    }
-
-    .box {
-      margin-top: 40px;
-      padding: 28px;
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.02);
-      text-align: left;
-    }
-
-    .box li {
-      margin-bottom: 12px;
-      font-size: 15px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 13px;
-      color: #8fa1b3;
-    }
+    footer{margin-top:60px; text-align:center; font-size:13px; color:rgba(233,238,245,.55);}
   </style>
 </head>
 
 <body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html" class="brand">정도HR</a>
+      <div class="links">
+        <a href="index.html">메인</a>
+        <a href="about.html" class="active">회사소개</a>
+        <a href="service.html">서비스</a>
+        <a href="location.html">오시는길</a>
+        <a href="notice.html">공지</a>
+      </div>
+    </nav>
 
-  <!-- 상단 메뉴 -->
-  <nav class="nav">
-    <a href="index.html" class="brand">정도HR</a>
-    <div class="links">
-      <a href="index.html">메인</a>
-      <a href="about.html" class="active">회사소개</a>
-      <a href="service.html">서비스</a>
-      <a href="location.html">오시는길</a>
-      <a href="notice.html">공지</a>
-    </div>
-  </nav>
+    <section class="hero">
+      <h1>회사소개</h1>
+      <p class="sub">
+        정도HR은 제조·건설 현장을 기준으로 운영되는 인력 파트너입니다.<br />
+        단순 공급이 아니라 <b>근태·안전·숙련도·이탈</b>까지 고려해 현장 운용이 흔들리지 않도록 관리합니다.
+      </p>
+    </section>
 
-  <!-- 본문 -->
-  <div class="container">
-    <h1>회사소개</h1>
+    <section class="card">
+      <p class="lead">
+        “책임 없는 중개”가 아닌, 현장 조건에 맞춘 인력 운용 구조를 설계하고 관리합니다.
+      </p>
 
-    <p>
-      정도HR은 제조·건설 현장을 기준으로 운영되는<br />
-      현장 중심 인력 파트너입니다.
-    </p>
+      <div class="grid">
+        <div class="box">
+          <div class="ttl">운영 철학</div>
+          <p class="txt">
+            제조업과 건설 현장은 단순 인력 수급보다 현장 리스크 관리가 우선입니다.
+            정도HR은 투입 이후까지 고려해 현장 안정성을 기준으로 운영합니다.
+          </p>
+          <ul>
+            <li>근태·안전·이탈을 고려한 운영형 인력 관리</li>
+            <li>단기 투입보다 현장 안정성 우선</li>
+            <li>책임 없는 중개를 지양</li>
+          </ul>
+        </div>
 
-    <p>
-      제조업과 건설 현장은 단순한 인력 수급보다<br />
-      근태, 안전, 숙련도, 이탈 관리가 더 중요합니다.
-    </p>
+        <div class="box">
+          <div class="ttl">지원 영역</div>
+          <p class="txt">
+            현장 유형과 작업 특성에 맞춰 인력 구성을 설계하고,
+            운영 과정에서 필요한 관리 포인트를 함께 정리합니다.
+          </p>
+          <ul>
+            <li>제조업(생산·설비·물류) 운영 중심 인력 지원</li>
+            <li>건설업(현장 보조·기능 인력) 관리 중심 공급</li>
+            <li>협업 프로세스(요구조건·투입·운영·피드백) 정리</li>
+          </ul>
+        </div>
+      </div>
 
-    <p>
-      정도HR은 인력을 단순히 공급하지 않습니다.<br />
-      현장 조건에 맞춰 인력 운용 구조를 설계하고 관리합니다.
-    </p>
-
-    <div class="box">
-      <ul>
-        <li>• 제조업(생산·설비·물류) 인력 운영 지원</li>
-        <li>• 건설업(현장 보조·기능 인력) 관리 중심 공급</li>
-        <li>• 근태·안전·이탈을 고려한 현장 안정성 우선</li>
-        <li>• 단기 투입이 아닌 지속 가능한 인력 운용</li>
-        <li>• 책임 없는 중개를 지양합니다</li>
-      </ul>
-    </div>
-
-    <p style="margin-top:40px;">
-      본 페이지는 현재 준비 중이며,<br />
-      2026년 정식 오픈 전까지 단계적으로 업데이트될 예정입니다.
-    </p>
+      <footer>© Jungdo HR. All rights reserved.</footer>
+    </section>
   </div>
-
-  <footer>
-    © Jungdo HR. All rights reserved.
-  </footer>
-
 </body>
 </html>
