@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✅ 검색 제목(네이버/구글) -->
   <title>정도HR | 제조·건설 현장 인력 파트너</title>
-
-  <!-- ✅ 검색 결과 설명(네이버/구글) -->
   <meta name="description" content="정도HR은 제조·건설 현장을 기준으로 근태·안전·숙련도·이탈 관리를 포함한 운영 중심 인력공급 및 관리 지원을 제공합니다." />
 
   <style>
@@ -58,24 +55,48 @@
       text-decoration:none;
       letter-spacing:-.3px;
       font-size:18px;
+      display:inline-flex;
+      align-items:center;
+      height:36px;            /* ✅ 브랜드도 높이 고정 */
+      padding:0 4px;
     }
 
     .links{
       display:flex;
-      gap:16px;
+      align-items:center;     /* ✅ 링크 수직 정렬 고정 */
+      gap:10px;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
 
+    /* ✅ 모든 메뉴 클릭 영역/높이/정렬을 완전히 동일하게 고정 */
     .links a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      height:36px;            /* ✅ 히트박스(클릭 영역) 고정 */
+      padding:0 10px;         /* ✅ 좌우 여백 동일 */
+      border-radius:10px;     /* ✅ hover/active 시 모양 안정 */
       color:var(--text);
       text-decoration:none;
       font-weight:700;
       font-size:14px;
       opacity:.85;
+      line-height:1;          /* ✅ 텍스트 기준선 흔들림 방지 */
+      white-space:nowrap;     /* ✅ 줄바꿈으로 높이 흔들림 방지 */
     }
-    .links a:hover{opacity:1;}
-    .links a.active{color:var(--gold); opacity:1;}
+
+    .links a:hover{
+      opacity:1;
+      background: rgba(255,255,255,.06);
+    }
+
+    /* ✅ active는 “색만” 바꾸고, 두께/패딩/높이 변화 없음 */
+    .links a.active{
+      color:var(--gold);
+      opacity:1;
+      background: rgba(216,176,75,.10);
+    }
 
     /* 메인 */
     .hero{
@@ -142,6 +163,7 @@
 
     <nav class="nav">
       <a href="index.html" class="brand">정도HR</a>
+
       <div class="links">
         <a href="index.html" class="active">메인</a>
         <a href="about.html">회사소개</a>
@@ -154,7 +176,7 @@
     <main class="hero">
       <img src="logo.png" alt="정도HR 로고" class="logoImg" />
 
-      <!-- ✅ 네이버/구글 인식용 대표 H1 (화면에는 표시 안 됨) -->
+      <!-- 검색엔진 인식용 대표 H1 (화면에는 표시 안 됨) -->
       <h1 style="position:absolute; left:-9999px;">정도HR</h1>
 
       <div class="subtitle">제조·건설 현장을 기준으로 운영되는 인력 파트너</div>
@@ -167,7 +189,6 @@
 현장 조건에 맞춰
 인력 운용 구조를 설계하고 관리합니다.</div>
 
-      <!-- ✅ 문구 교체 적용 (버전 1 · 대분류만 길게) -->
       <div class="card">
         <ul>
           <li>근태·안전·이탈까지 고려한 현장 기준의 체계적인 인력 관리</li>
