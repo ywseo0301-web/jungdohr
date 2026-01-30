@@ -34,13 +34,16 @@
     }
 
     /* =========================
-       상단 네비게이션 (완전 통일)
+       ✅ 상단 네비게이션 (GRID로 강제 고정)
+       - 브랜드: 왼쪽
+       - 메뉴: 오른쪽 끝 (항상 동일)
        ========================= */
     .nav{
-      display:flex;
+      display:grid;
+      grid-template-columns: auto 1fr;  /* ✅ 오른쪽 영역(1fr)을 확보 */
       align-items:center;
-      justify-content:space-between;
       gap:14px;
+
       padding:14px 18px;
       border:1px solid var(--line);
       border-radius:16px;
@@ -61,17 +64,17 @@
       letter-spacing:-.3px;
       color:var(--gold);
       text-decoration:none;
+      white-space:nowrap;
     }
 
     .links{
+      justify-self:end;              /* ✅ 오른쪽 끝에 “고정” */
       display:flex;
       align-items:center;
       gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+      flex-wrap:nowrap;              /* ✅ 메인에서만 줄바꿈으로 흔들리는 것 방지 */
     }
 
-    /* 모든 메뉴 클릭 영역 완전 동일 */
     .links a{
       display:inline-flex;
       align-items:center;
@@ -83,6 +86,7 @@
       font-weight:700;
       line-height:1;
       white-space:nowrap;
+
       color:var(--text);
       text-decoration:none;
       opacity:.85;
@@ -93,7 +97,6 @@
       background: rgba(255,255,255,.06);
     }
 
-    /* active는 색만 변경 (크기/위치 변화 없음) */
     .links a.active{
       color:var(--gold);
       opacity:1;
@@ -159,6 +162,15 @@
       font-size:13px;
       color:rgba(233,238,245,.55);
     }
+
+    /* ✅ 작은 화면에서 메뉴가 많아질 경우(모바일 안전장치) */
+    @media (max-width: 520px){
+      .nav{ grid-template-columns: 1fr; }
+      .links{
+        justify-self:start;
+        flex-wrap:wrap;             /* 모바일에서는 줄바꿈 허용 */
+      }
+    }
   </style>
 </head>
 
@@ -167,6 +179,7 @@
 
     <nav class="nav">
       <a href="index.html" class="brand">정도HR</a>
+
       <div class="links">
         <a href="index.html" class="active">메인</a>
         <a href="about.html">회사소개</a>
