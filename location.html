@@ -31,9 +31,46 @@
     .links a:hover{opacity:1;}
     .links a.active{color:var(--gold); opacity:1;}
 
-    .container{margin-top:34px; padding:50px 10px; text-align:center;}
-    h1{margin:30px 0 12px; font-size:42px; letter-spacing:-.5px;}
-    .sub{color:var(--muted); margin:0 0 34px; font-size:16px;}
+    .container{margin-top:34px; padding:34px 10px 10px; text-align:center;}
+    h1{margin:18px 0 10px; font-size:42px; letter-spacing:-.5px;}
+    .sub{color:var(--muted); margin:0 0 18px; font-size:16px;}
+
+    .mapWrap{
+      width:min(900px,92vw);
+      margin:0 auto 18px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(0,0,0,.12);
+      overflow:hidden;
+    }
+    .mapWrap iframe{
+      width:100%;
+      height:360px;
+      border:0;
+      display:block;
+    }
+    .btns{
+      display:flex; gap:10px; flex-wrap:wrap;
+      padding:12px;
+      border-top:1px solid rgba(216,176,75,.14);
+      justify-content:center;
+      background:rgba(0,0,0,.10);
+    }
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:800;
+      font-size:14px;
+      color:var(--text);
+      border:1px solid rgba(233,238,245,.18);
+      opacity:.95;
+    }
+    .btn.primary{
+      border:1px solid rgba(216,176,75,.35);
+    }
+    .btn:hover{opacity:1;}
 
     .box{
       width:min(900px, 92vw);
@@ -49,21 +86,10 @@
     .label{color:rgba(233,238,245,.9); font-weight:800; margin-bottom:6px;}
     .value{color:var(--muted); margin:0 0 14px;}
 
-    .map{
-      margin-top:16px;
-      height:320px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
-      display:flex; align-items:center; justify-content:center;
-      color:rgba(233,238,245,.7);
-      font-size:14px;
-    }
-
-    .note{margin-top:14px; color:rgba(233,238,245,.65); font-size:13px;}
-    footer{margin-top:70px; text-align:center; font-size:13px; color:rgba(233,238,245,.55);}
+    footer{margin-top:34px; text-align:center; font-size:13px; color:rgba(233,238,245,.55);}
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <nav class="nav">
@@ -79,25 +105,36 @@
 
     <main class="container">
       <h1>오시는길</h1>
-      <p class="sub">현재는 오픈 준비 단계입니다. 주소/연락처는 확정되는 대로 반영됩니다.</p>
-<div class="map">
-  <iframe
-    src="https://map.naver.com/p/search/경기도 안성시 공도읍 서동대로 4060-3"
-    width="100%"
-    height="380"
-    style="border:0; border-radius:16px;"
-    loading="lazy">
-  </iframe>
-</div>
+      <p class="sub">경기도 안성시 공도읍 서동대로 4060-3</p>
+
+      <div class="mapWrap">
+        <iframe
+          src="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%95%88%EC%84%B1%EC%8B%9C%20%EA%B3%B5%EB%8F%84%EC%9D%8D%20%EC%84%9C%EB%8F%99%EB%8C%80%EB%A1%9C%204060-3"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+
+        <div class="btns">
+          <a class="btn primary" target="_blank"
+             href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%95%88%EC%84%B1%EC%8B%9C%20%EA%B3%B5%EB%8F%84%EC%9D%8D%20%EC%84%9C%EB%8F%99%EB%8C%80%EB%A1%9C%204060-3">
+            네이버 지도에서 열기
+          </a>
+          <a class="btn" target="_blank"
+             href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%95%88%EC%84%B1%EC%8B%9C%20%EA%B3%B5%EB%8F%84%EC%9D%8D%20%EC%84%9C%EB%8F%99%EB%8C%80%EB%A1%9C%204060-3">
+            길찾기 / 경로 보기
+          </a>
+        </div>
+      </div>
 
       <div class="box">
         <div class="row">
           <div class="col">
             <div class="label">주소</div>
-            <p class="value">추후 확정 예정 (천안/아산 권역 중심)</p>
+            <p class="value">경기도 안성시 공도읍 서동대로 4060-3</p>
 
             <div class="label">연락</div>
-            <p class="value">사전 협업 문의는 준비 중입니다.</p>
+            <p class="value">오픈 전 사전 상담/협업 문의 가능합니다.</p>
           </div>
 
           <div class="col">
@@ -105,12 +142,9 @@
             <p class="value">정식 오픈 전에는 현장 상담/협업 중심으로 운영됩니다.</p>
 
             <div class="label">비고</div>
-            <p class="value">지도(카카오/네이버)는 주소 확정 후 바로 삽입 가능합니다.</p>
+            <p class="value">지도 영역이 보이지 않으면 위 버튼으로 지도 페이지를 열어주세요.</p>
           </div>
         </div>
-
-        <div class="map">지도 영역 (주소 확정 후 삽입)</div>
-        <div class="note">원하시면 “카카오 지도 / 네이버 지도” 중 원하는 걸로 복붙 코드까지 바로 만들어드리겠습니다.</div>
       </div>
 
       <footer>© Jungdo HR. All rights reserved.</footer>
