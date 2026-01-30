@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- ✅ 검색 제목 -->
   <title>정도HR | 제조·건설 현장 인력 파트너</title>
+
+  <!-- ✅ 검색 설명 -->
   <meta name="description" content="정도HR은 제조·건설 현장을 기준으로 근태·안전·숙련도·이탈 관리를 포함한 운영 중심 인력공급 및 관리 지원을 제공합니다." />
 
   <style>
@@ -27,23 +30,19 @@
       line-height:1.7;
     }
 
+    /* ✅ (중요) 회사소개/오시는길과 동일 */
     .wrap{
       width:min(1000px,92vw);
       margin:0 auto;
-      padding:18px 18px 60px;
+      padding:28px 18px 70px;
     }
 
-    /* =========================
-       ✅ 상단 네비게이션 (GRID로 강제 고정)
-       - 브랜드: 왼쪽
-       - 메뉴: 오른쪽 끝 (항상 동일)
-       ========================= */
+    /* ✅ (중요) 회사소개/오시는길과 동일 */
     .nav{
-      display:grid;
-      grid-template-columns: auto 1fr;  /* ✅ 오른쪽 영역(1fr)을 확보 */
+      display:flex;
       align-items:center;
+      justify-content:space-between;
       gap:14px;
-
       padding:14px 18px;
       border:1px solid var(--line);
       border-radius:16px;
@@ -54,57 +53,37 @@
       z-index:10;
     }
 
+    /* ✅ (중요) 회사소개/오시는길과 동일 */
     .brand{
-      display:inline-flex;
-      align-items:center;
-      height:36px;
-      padding:0 4px;
       font-weight:900;
-      font-size:18px;
-      letter-spacing:-.3px;
       color:var(--gold);
       text-decoration:none;
-      white-space:nowrap;
+      letter-spacing:-.3px;
+      font-size:18px;
     }
 
+    /* ✅ (중요) 회사소개/오시는길과 동일 */
     .links{
-      justify-self:end;              /* ✅ 오른쪽 끝에 “고정” */
       display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:nowrap;              /* ✅ 메인에서만 줄바꿈으로 흔들리는 것 방지 */
+      gap:16px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
 
+    /* ✅ (중요) 회사소개/오시는길과 동일 */
     .links a{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      height:36px;
-      padding:0 10px;
-      border-radius:10px;
-      font-size:14px;
-      font-weight:700;
-      line-height:1;
-      white-space:nowrap;
-
       color:var(--text);
       text-decoration:none;
+      font-weight:700;
+      font-size:14px;
       opacity:.85;
+      padding:6px 2px;
     }
-
-    .links a:hover{
-      opacity:1;
-      background: rgba(255,255,255,.06);
-    }
-
-    .links a.active{
-      color:var(--gold);
-      opacity:1;
-      background: rgba(216,176,75,.10);
-    }
+    .links a:hover{opacity:1;}
+    .links a.active{color:var(--gold); opacity:1;} /* 밑줄/배경 없음 (동일) */
 
     /* =========================
-       메인 영역
+       메인 컨텐츠
        ========================= */
     .hero{
       margin-top:10px;
@@ -114,8 +93,8 @@
 
     .logoImg{
       display:block;
-      margin:20px auto 16px;
-      width:min(420px,72vw);
+      margin: 20px auto 16px;
+      width: min(420px, 72vw);
       height:auto;
       filter: drop-shadow(0 14px 24px rgba(0,0,0,.35));
     }
@@ -128,15 +107,15 @@
     }
 
     .text{
-      margin:14px 0;
-      font-size:16px;
       color:var(--muted);
+      font-size:16px;
+      margin: 14px 0;
       white-space:pre-line;
     }
 
     .card{
-      width:min(720px,92vw);
-      margin:36px auto 0;
+      width:min(720px, 92vw);
+      margin: 36px auto 0;
       padding:22px;
       border:1px solid var(--line);
       border-radius:16px;
@@ -147,29 +126,17 @@
     .card ul{
       margin:0;
       padding-left:18px;
-      font-size:15px;
       color:rgba(233,238,245,.88);
+      font-size:15px;
     }
-
-    .card li{
-      margin:10px 0;
-      line-height:1.6;
-    }
+    .card li{margin:10px 0; line-height:1.6;}
 
     footer{
       margin-top:60px;
       text-align:center;
       font-size:13px;
       color:rgba(233,238,245,.55);
-    }
-
-    /* ✅ 작은 화면에서 메뉴가 많아질 경우(모바일 안전장치) */
-    @media (max-width: 520px){
-      .nav{ grid-template-columns: 1fr; }
-      .links{
-        justify-self:start;
-        flex-wrap:wrap;             /* 모바일에서는 줄바꿈 허용 */
-      }
+      padding-bottom:10px;
     }
   </style>
 </head>
@@ -177,9 +144,9 @@
 <body>
   <div class="wrap">
 
+    <!-- ✅ 네비(회사소개/오시는길과 100% 동일한 구조) -->
     <nav class="nav">
       <a href="index.html" class="brand">정도HR</a>
-
       <div class="links">
         <a href="index.html" class="active">메인</a>
         <a href="about.html">회사소개</a>
@@ -192,7 +159,7 @@
     <main class="hero">
       <img src="logo.png" alt="정도HR 로고" class="logoImg" />
 
-      <!-- 검색엔진 인식용 대표 H1 (화면 비표시) -->
+      <!-- 검색엔진 인식용 대표 H1 (화면엔 안 보이게) -->
       <h1 style="position:absolute; left:-9999px;">정도HR</h1>
 
       <div class="subtitle">제조·건설 현장을 기준으로 운영되는 인력 파트너</div>
@@ -210,14 +177,6 @@
           <li>근태·안전·이탈까지 고려한 현장 기준의 체계적인 인력 관리</li>
           <li>단기 투입이 아닌 현장 안정성과 지속성을 우선하는 인력 운영</li>
           <li>투입 이후까지 책임지는 운영 중심 인력 파트너</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <ul>
-          <li>제조업 생산·설비·물류 현장</li>
-          <li>건설 현장 보조 및 기능 인력</li>
-          <li>단기·중장기 인력 운용이 필요한 현장</li>
         </ul>
       </div>
 
