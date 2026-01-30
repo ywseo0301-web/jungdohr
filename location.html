@@ -19,6 +19,7 @@
       line-height:1.7;
     }
     .wrap{width:min(1000px,92vw); margin:0 auto; padding:28px 18px 70px;}
+
     .nav{
       display:flex; align-items:center; justify-content:space-between; gap:14px;
       padding:14px 18px; border:1px solid var(--line); border-radius:16px;
@@ -31,13 +32,18 @@
     .links a:hover{opacity:1;}
     .links a.active{color:var(--gold); opacity:1;}
 
-    .container{margin-top:34px; padding:34px 10px 10px; text-align:center;}
-    h1{margin:18px 0 10px; font-size:42px; letter-spacing:-.5px;}
+    .container{margin-top:34px; padding:22px 10px 10px; text-align:center;}
+    h1{margin:10px 0 8px; font-size:42px; letter-spacing:-.5px;}
     .sub{color:var(--muted); margin:0 0 18px; font-size:16px;}
 
+    /* ✅ 지도와 텍스트 겹침 방지 핵심:
+       - 지도는 문서 흐름 안에만 두고(position 고정/절대 X)
+       - 충분한 margin-bottom 확보
+       - overflow hidden으로 내부 UI가 밖으로 튀는 느낌 최소화
+    */
     .mapWrap{
       width:min(900px,92vw);
-      margin:0 auto 18px;
+      margin:0 auto 22px;
       border:1px solid var(--line);
       border-radius:16px;
       background:rgba(0,0,0,.12);
@@ -45,10 +51,11 @@
     }
     .mapWrap iframe{
       width:100%;
-      height:360px;
+      height:480px;        /* ✅ 지도 높이 넉넉 */
       border:0;
       display:block;
     }
+
     .btns{
       display:flex; gap:10px; flex-wrap:wrap;
       padding:12px;
@@ -66,10 +73,9 @@
       color:var(--text);
       border:1px solid rgba(233,238,245,.18);
       opacity:.95;
+      white-space:nowrap;
     }
-    .btn.primary{
-      border:1px solid rgba(216,176,75,.35);
-    }
+    .btn.primary{ border:1px solid rgba(216,176,75,.35); }
     .btn:hover{opacity:1;}
 
     .box{
@@ -107,6 +113,7 @@
       <h1>오시는길</h1>
       <p class="sub">경기도 안성시 공도읍 서동대로 4060-3</p>
 
+      <!-- ✅ 지도는 여기(텍스트 위) 단 하나만 -->
       <div class="mapWrap">
         <iframe
           src="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%95%88%EC%84%B1%EC%8B%9C%20%EA%B3%B5%EB%8F%84%EC%9D%8D%20%EC%84%9C%EB%8F%99%EB%8C%80%EB%A1%9C%204060-3"
@@ -127,6 +134,7 @@
         </div>
       </div>
 
+      <!-- ✅ 지도 아래에 텍스트만 나오게 구성 -->
       <div class="box">
         <div class="row">
           <div class="col">
@@ -142,7 +150,7 @@
             <p class="value">정식 오픈 전에는 현장 상담/협업 중심으로 운영됩니다.</p>
 
             <div class="label">비고</div>
-            <p class="value">지도 영역이 보이지 않으면 위 버튼으로 지도 페이지를 열어주세요.</p>
+            <p class="value">지도가 로딩되지 않으면 위 버튼으로 지도 페이지를 열어주세요.</p>
           </div>
         </div>
       </div>
