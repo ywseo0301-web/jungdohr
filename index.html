@@ -30,14 +30,13 @@
       line-height:1.7;
     }
 
-    /* ✅ (중요) 회사소개/오시는길과 동일 */
+    /* ✅ 회사소개/오시는길과 동일한 wrap/네비 스타일 */
     .wrap{
       width:min(1000px,92vw);
       margin:0 auto;
       padding:28px 18px 70px;
     }
 
-    /* ✅ (중요) 회사소개/오시는길과 동일 */
     .nav{
       display:flex;
       align-items:center;
@@ -53,7 +52,6 @@
       z-index:10;
     }
 
-    /* ✅ (중요) 회사소개/오시는길과 동일 */
     .brand{
       font-weight:900;
       color:var(--gold);
@@ -62,7 +60,6 @@
       font-size:18px;
     }
 
-    /* ✅ (중요) 회사소개/오시는길과 동일 */
     .links{
       display:flex;
       gap:16px;
@@ -70,7 +67,6 @@
       justify-content:flex-end;
     }
 
-    /* ✅ (중요) 회사소개/오시는길과 동일 */
     .links a{
       color:var(--text);
       text-decoration:none;
@@ -80,11 +76,9 @@
       padding:6px 2px;
     }
     .links a:hover{opacity:1;}
-    .links a.active{color:var(--gold); opacity:1;} /* 밑줄/배경 없음 (동일) */
+    .links a.active{color:var(--gold); opacity:1;}
 
-    /* =========================
-       메인 컨텐츠
-       ========================= */
+    /* 메인 */
     .hero{
       margin-top:10px;
       padding:20px 18px 40px;
@@ -129,10 +123,35 @@
       color:rgba(233,238,245,.88);
       font-size:15px;
     }
-    .card li{margin:10px 0; line-height:1.6;}
+
+    .card li{
+      margin:10px 0;
+      line-height:1.6;
+    }
+
+    /* ✅ 새로 추가: 메인 하단 문의/안내 라인 */
+    .cta{
+      width:min(720px, 92vw);
+      margin: 22px auto 0;
+      padding:16px 18px;
+      border:1px solid rgba(216,176,75,.22);
+      border-radius:16px;
+      background:rgba(0,0,0,.10);
+      text-align:center;
+      color:rgba(233,238,245,.9);
+      font-weight:800;
+      line-height:1.7;
+    }
+    .cta .muted{
+      display:block;
+      margin-top:6px;
+      font-weight:700;
+      color:rgba(233,238,245,.72);
+      font-size:14px;
+    }
 
     footer{
-      margin-top:60px;
+      margin-top:28px;
       text-align:center;
       font-size:13px;
       color:rgba(233,238,245,.55);
@@ -144,7 +163,6 @@
 <body>
   <div class="wrap">
 
-    <!-- ✅ 네비(회사소개/오시는길과 100% 동일한 구조) -->
     <nav class="nav">
       <a href="index.html" class="brand">정도HR</a>
       <div class="links">
@@ -159,7 +177,7 @@
     <main class="hero">
       <img src="logo.png" alt="정도HR 로고" class="logoImg" />
 
-      <!-- 검색엔진 인식용 대표 H1 (화면엔 안 보이게) -->
+      <!-- ✅ 검색엔진 인식용 대표 H1 (화면엔 안 보임) -->
       <h1 style="position:absolute; left:-9999px;">정도HR</h1>
 
       <div class="subtitle">제조·건설 현장을 기준으로 운영되는 인력 파트너</div>
@@ -172,12 +190,28 @@
 현장 조건에 맞춰
 인력 운용 구조를 설계하고 관리합니다.</div>
 
+      <!-- ✅ 운영 철학(기존) -->
       <div class="card">
         <ul>
           <li>근태·안전·이탈까지 고려한 현장 기준의 체계적인 인력 관리</li>
           <li>단기 투입이 아닌 현장 안정성과 지속성을 우선하는 인력 운영</li>
           <li>투입 이후까지 책임지는 운영 중심 인력 파트너</li>
         </ul>
+      </div>
+
+      <!-- ✅ 현장 유형(요청 문구로 정리) -->
+      <div class="card">
+        <ul>
+          <li>제조업 생산·설비·물류 현장</li>
+          <li>건설 현장 보조 및 기능 인력 운영</li>
+          <li>중소·중견 현장 중심 협업</li>
+        </ul>
+      </div>
+
+      <!-- ✅ 서비스 보완 문구(메인에 1줄로 반영) -->
+      <div class="cta">
+        투입 후 관리 부담을 줄이는 운영 방식을 지향합니다.
+        <span class="muted">현장 조건에 맞는 인력 운영이 필요하시면 📞 010-3898-6615 로 문의 주세요.</span>
       </div>
 
       <footer>© Jungdo HR. All rights reserved.</footer>
