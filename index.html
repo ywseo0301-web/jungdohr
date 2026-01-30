@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>정도HR | Coming Soon</title>
+
+  <!-- ✅ 검색 제목(네이버/구글) -->
+  <title>정도HR | 제조·건설 현장 인력 파트너</title>
+
+  <!-- ✅ 검색 결과 설명(네이버/구글) -->
+  <meta name="description" content="정도HR은 제조·건설 현장을 기준으로 근태·안전·숙련도·이탈 관리를 포함한 운영 중심 인력공급 및 관리 지원을 제공합니다." />
 
   <style>
     :root{
@@ -28,7 +33,7 @@
     .wrap{
       width:min(1000px,92vw);
       margin:0 auto;
-      padding:18px 18px 60px; /* ⬅ 상단 여백 축소 */
+      padding:18px 18px 60px;
     }
 
     /* 상단 메뉴 */
@@ -69,19 +74,20 @@
       font-size:14px;
       opacity:.85;
     }
+    .links a:hover{opacity:1;}
     .links a.active{color:var(--gold); opacity:1;}
 
     /* 메인 */
     .hero{
-      margin-top:10px;      /* ⬅ 기존 34px 제거 */
-      padding:20px 18px 40px; /* ⬅ 기존 70px 제거 */
+      margin-top:10px;
+      padding:20px 18px 40px;
       text-align:center;
     }
 
     /* 로고 */
     .logoImg{
       display:block;
-      margin: 20px auto 16px; /* ⬅ 로고 위 여백 최소화 */
+      margin: 20px auto 16px;
       width: min(420px, 72vw);
       height:auto;
       filter: drop-shadow(0 14px 24px rgba(0,0,0,.35));
@@ -111,6 +117,14 @@
       text-align:left;
     }
 
+    .card ul{
+      margin:0;
+      padding-left:18px;
+      color:rgba(233,238,245,.88);
+      font-size:15px;
+    }
+    .card li{margin:8px 0;}
+
     footer{
       margin-top:60px;
       text-align:center;
@@ -136,6 +150,9 @@
 
     <main class="hero">
       <img src="logo.png" alt="정도HR 로고" class="logoImg" />
+
+      <!-- ✅ 네이버/구글이 회사명을 확실히 인식하도록 하는 대표 H1 (화면엔 안 보임) -->
+      <h1 style="position:absolute; left:-9999px;">정도HR</h1>
 
       <div class="subtitle">제조·건설 현장을 기준으로 운영되는 인력 파트너</div>
 
