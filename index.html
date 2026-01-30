@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✅ 검색 제목(네이버/구글) -->
   <title>정도HR | 제조·건설 현장 인력 파트너</title>
-
-  <!-- ✅ 검색 결과 설명(네이버/구글) -->
   <meta name="description" content="정도HR은 제조·건설 현장을 기준으로 근태·안전·숙련도·이탈 관리를 포함한 운영 중심 인력공급 및 관리 지원을 제공합니다." />
 
   <style>
@@ -30,24 +27,28 @@
       line-height:1.7;
     }
 
+    /* ✅ 모든 페이지에서 동일하게 써야 "헤더 위치"가 100% 동일해집니다 */
     .wrap{
-      width:min(1000px,92vw);
-      margin:0 auto;
-      padding:18px 18px 60px;
+      width: min(1000px, calc(100% - 36px)); /* = 좌우 18px 고정 여백 */
+      margin: 0 auto;
+      padding: 18px 0 60px; /* ✅ 좌우 padding 제거(중복 방지) */
     }
 
-    /* 상단 메뉴 */
+    /* ✅ 헤더: wrap 안에서 100% 폭으로만 동작(absolute/right 금지) */
     .nav{
+      width: 100%;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:14px;
+
       padding:14px 18px;
       border:1px solid var(--line);
       border-radius:16px;
       background:rgba(0,0,0,.14);
       backdrop-filter: blur(6px);
-      position:sticky;
+
+      position: sticky;
       top:16px;
       z-index:10;
     }
@@ -58,13 +59,18 @@
       text-decoration:none;
       letter-spacing:-.3px;
       font-size:18px;
+      flex: 0 0 auto;
     }
 
+    /* ✅ 메뉴는 무조건 flex로 우측 정렬 */
     .links{
       display:flex;
+      align-items:center;
       gap:16px;
       flex-wrap:wrap;
       justify-content:flex-end;
+      margin-left:auto;  /* ✅ 우측으로 밀착(결정타) */
+      text-align:right;
     }
 
     .links a{
@@ -74,6 +80,7 @@
       font-size:14px;
       opacity:.85;
       padding:6px 2px;
+      white-space:nowrap; /* ✅ 줄바꿈으로 밀리는 현상 방지 */
     }
     .links a:hover{opacity:1;}
     .links a.active{color:var(--gold); opacity:1;}
@@ -81,11 +88,10 @@
     /* 메인 */
     .hero{
       margin-top:10px;
-      padding:20px 18px 40px;
+      padding:20px 18px 40px; /* ✅ 본문만 좌우 18px */
       text-align:center;
     }
 
-    /* 로고 */
     .logoImg{
       display:block;
       margin: 20px auto 16px;
@@ -108,7 +114,6 @@
       white-space:pre-line;
     }
 
-    /* ✅ 사진 섹션 */
     .photoGrid{
       width:min(900px,92vw);
       margin:48px auto 0;
@@ -144,7 +149,6 @@
       .photoCard img{height:220px;}
     }
 
-    /* 카드 */
     .card{
       width:min(720px, 92vw);
       margin: 36px auto 0;
@@ -163,7 +167,6 @@
     }
     .card li{margin:10px 0;}
 
-    /* ✅ 추가: 운영 대상/방식(요청 문구 반영) */
     .support{
       width:min(720px, 92vw);
       margin: 18px auto 0;
@@ -187,7 +190,6 @@
       white-space:pre-line;
     }
 
-    /* ✅ 추가: 문의 CTA */
     .cta{
       width:min(720px, 92vw);
       margin: 18px auto 0;
@@ -241,7 +243,6 @@
     <main class="hero">
       <img src="logo.png" alt="정도HR 로고" class="logoImg" />
 
-      <!-- ✅ 네이버/구글이 회사명을 확실히 인식하도록 하는 대표 H1 (화면엔 안 보임) -->
       <h1 style="position:absolute; left:-9999px;">정도HR</h1>
 
       <div class="subtitle">제조·건설 현장을 기준으로 운영되는 인력 파트너</div>
@@ -254,7 +255,6 @@
 현장 조건에 맞춰
 인력 운용 구조를 설계하고 관리합니다.</div>
 
-      <!-- ✅ 사진 2장 -->
       <section class="photoGrid" aria-label="현장 이미지">
         <figure class="photoCard">
           <img src="manufacturing.png" alt="제조업 생산·설비·물류 현장 인력 운영" loading="lazy" />
@@ -267,7 +267,6 @@
         </figure>
       </section>
 
-      <!-- ✅ 기존 카드(유지) -->
       <div class="card">
         <ul>
           <li>근태·안전·이탈까지 고려한 현장 기준의 체계적인 인력 관리</li>
@@ -276,7 +275,6 @@
         </ul>
       </div>
 
-      <!-- ✅ 요청 반영: 3개 타깃 + 서비스 보완 문구(추가) -->
       <section class="support" aria-label="지원 대상 및 운영 방식">
         <div class="ttl">지원 범위</div>
         <p>• 제조업 생산·설비·물류 현장
@@ -287,7 +285,6 @@
         <p>투입 후 관리 부담을 줄이는 운영 방식을 지향합니다.</p>
       </section>
 
-      <!-- ✅ 요청 반영: 문의 문구(추가) -->
       <section class="cta" aria-label="문의">
         <p class="msg">현장 조건에 맞는 인력 운영이 필요하시면</p>
         <a href="tel:010-3898-6615">📞 010-3898-6615</a>
