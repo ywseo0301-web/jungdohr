@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✅ 검색 제목 -->
+  <!-- ✅ 검색 제목(네이버/구글) -->
   <title>정도HR | 제조·건설 현장 인력 파트너</title>
 
-  <!-- ✅ 검색 설명 -->
+  <!-- ✅ 검색 결과 설명(네이버/구글) -->
   <meta name="description" content="정도HR은 제조·건설 현장을 기준으로 근태·안전·숙련도·이탈 관리를 포함한 운영 중심 인력공급 및 관리 지원을 제공합니다." />
 
   <style>
@@ -30,13 +30,13 @@
       line-height:1.7;
     }
 
-    /* ✅ 회사소개/오시는길과 동일한 wrap/네비 스타일 */
     .wrap{
       width:min(1000px,92vw);
       margin:0 auto;
-      padding:28px 18px 70px;
+      padding:18px 18px 60px;
     }
 
+    /* 상단 메뉴 */
     .nav{
       display:flex;
       align-items:center;
@@ -85,6 +85,7 @@
       text-align:center;
     }
 
+    /* 로고 */
     .logoImg{
       display:block;
       margin: 20px auto 16px;
@@ -107,6 +108,46 @@
       white-space:pre-line;
     }
 
+    /* ✅ 사진 섹션 (추가) */
+    .photoGrid{
+      width:min(900px,92vw);
+      margin:48px auto 0;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      text-align:left;
+    }
+
+    .photoCard{
+      margin:0;
+      border:1px solid rgba(216,176,75,.18);
+      border-radius:16px;
+      background:rgba(0,0,0,.10);
+      overflow:hidden;
+    }
+
+    .photoCard img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      display:block;
+      filter: saturate(1.02) contrast(1.02);
+    }
+
+    .photoCard figcaption{
+      padding:12px 12px;
+      text-align:center;
+      color:rgba(233,238,245,.82);
+      font-size:14px;
+      border-top:1px solid rgba(216,176,75,.12);
+      background:rgba(0,0,0,.10);
+    }
+
+    @media (max-width:820px){
+      .photoGrid{grid-template-columns:1fr;}
+      .photoCard img{height:220px;}
+    }
+
     .card{
       width:min(720px, 92vw);
       margin: 36px auto 0;
@@ -123,39 +164,13 @@
       color:rgba(233,238,245,.88);
       font-size:15px;
     }
-
-    .card li{
-      margin:10px 0;
-      line-height:1.6;
-    }
-
-    /* ✅ 새로 추가: 메인 하단 문의/안내 라인 */
-    .cta{
-      width:min(720px, 92vw);
-      margin: 22px auto 0;
-      padding:16px 18px;
-      border:1px solid rgba(216,176,75,.22);
-      border-radius:16px;
-      background:rgba(0,0,0,.10);
-      text-align:center;
-      color:rgba(233,238,245,.9);
-      font-weight:800;
-      line-height:1.7;
-    }
-    .cta .muted{
-      display:block;
-      margin-top:6px;
-      font-weight:700;
-      color:rgba(233,238,245,.72);
-      font-size:14px;
-    }
+    .card li{margin:8px 0;}
 
     footer{
-      margin-top:28px;
+      margin-top:60px;
       text-align:center;
       font-size:13px;
       color:rgba(233,238,245,.55);
-      padding-bottom:10px;
     }
   </style>
 </head>
@@ -177,7 +192,7 @@
     <main class="hero">
       <img src="logo.png" alt="정도HR 로고" class="logoImg" />
 
-      <!-- ✅ 검색엔진 인식용 대표 H1 (화면엔 안 보임) -->
+      <!-- ✅ 네이버/구글이 회사명을 확실히 인식하도록 하는 대표 H1 (화면엔 안 보임) -->
       <h1 style="position:absolute; left:-9999px;">정도HR</h1>
 
       <div class="subtitle">제조·건설 현장을 기준으로 운영되는 인력 파트너</div>
@@ -190,28 +205,25 @@
 현장 조건에 맞춰
 인력 운용 구조를 설계하고 관리합니다.</div>
 
-      <!-- ✅ 운영 철학(기존) -->
+      <!-- ✅ 사진 2장 섹션 (추가) -->
+      <section class="photoGrid" aria-label="현장 이미지">
+        <figure class="photoCard">
+          <img src="manufacturing.png" alt="제조업 생산·설비·물류 현장 인력 운영" loading="lazy" />
+          <figcaption>제조업 생산·설비·물류 현장</figcaption>
+        </figure>
+
+        <figure class="photoCard">
+          <img src="construction.png" alt="건설 현장 보조 및 기능 인력 운영" loading="lazy" />
+          <figcaption>건설 현장 보조 및 기능 인력 운영</figcaption>
+        </figure>
+      </section>
+
       <div class="card">
         <ul>
           <li>근태·안전·이탈까지 고려한 현장 기준의 체계적인 인력 관리</li>
           <li>단기 투입이 아닌 현장 안정성과 지속성을 우선하는 인력 운영</li>
           <li>투입 이후까지 책임지는 운영 중심 인력 파트너</li>
         </ul>
-      </div>
-
-      <!-- ✅ 현장 유형(요청 문구로 정리) -->
-      <div class="card">
-        <ul>
-          <li>제조업 생산·설비·물류 현장</li>
-          <li>건설 현장 보조 및 기능 인력 운영</li>
-          <li>중소·중견 현장 중심 협업</li>
-        </ul>
-      </div>
-
-      <!-- ✅ 서비스 보완 문구(메인에 1줄로 반영) -->
-      <div class="cta">
-        투입 후 관리 부담을 줄이는 운영 방식을 지향합니다.
-        <span class="muted">현장 조건에 맞는 인력 운영이 필요하시면 📞 010-3898-6615 로 문의 주세요.</span>
       </div>
 
       <footer>© Jungdo HR. All rights reserved.</footer>
