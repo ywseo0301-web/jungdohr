@@ -25,6 +25,7 @@
       line-height:1.7;
     }
 
+    /* ✅ 메인(index.html)과 동일한 폭/패딩 */
     .wrap{
       width:min(1000px,92vw);
       margin:0 auto;
@@ -57,7 +58,7 @@
 
     .links{
       display:flex;
-      gap:16px;
+      gap:16px;              /* ✅ 메인과 동일 */
       flex-wrap:wrap;
       justify-content:flex-end;
     }
@@ -65,14 +66,13 @@
     .links a{
       color:var(--text);
       text-decoration:none;
-      font-weight:700;
+      font-weight:700;       /* ✅ 메인과 동일 */
       font-size:14px;
       opacity:.85;
       padding:6px 2px;
     }
     .links a:hover{opacity:1;}
-    /* ✅ 메인과 똑같이 active는 색만 변경(밑줄 없음) */
-    .links a.active{color:var(--gold); opacity:1;}
+    .links a.active{color:var(--gold); opacity:1;}  /* ✅ 메인과 동일(밑줄 없음) */
 
     /* 본문 */
     .hero{
@@ -81,60 +81,81 @@
       text-align:center;
     }
 
-    .title{
-      font-size:44px;
-      font-weight:900;
+    h1{
+      margin:0 0 18px;
+      font-size:42px;
       letter-spacing:-.6px;
-      color:rgba(233,238,245,.95);
-      margin: 40px 0 10px;
     }
 
     .sub{
       margin:0 auto;
-      font-size:16px;
       color:var(--muted);
+      font-size:16px;
       max-width:820px;
       white-space:pre-line;
     }
 
     .card{
-      width:min(720px, 92vw);
+      width:min(900px, 92vw);
       margin: 44px auto 0;
-      padding:22px 22px;
+      padding:26px 22px;
       border:1px solid var(--line);
       border-radius:16px;
       background:rgba(0,0,0,.12);
       text-align:left;
     }
 
-    .card h3{
-      margin:0 0 10px;
-      font-size:16px;
-      color:rgba(233,238,245,.95);
-      letter-spacing:-.2px;
+    .quote{
+      text-align:center;
+      font-weight:800;
+      color:rgba(233,238,245,.92);
+      margin:0 0 18px;
     }
 
-    .card p{
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width:820px){
+      .grid{grid-template-columns:1fr;}
+    }
+
+    .box{
+      border:1px solid rgba(216,176,75,.18);
+      border-radius:16px;
+      padding:18px 18px;
+      background:rgba(255,255,255,.03);
+    }
+
+    .ttl{
+      margin:0 0 10px;
+      font-weight:900;
+      color:rgba(233,238,245,.95);
+      font-size:16px;
+    }
+
+    .txt{
       margin:0;
       color:var(--muted);
       font-size:15px;
       white-space:pre-line;
     }
 
-    .card ul{
-      margin:14px 0 0;
+    ul{
+      margin:12px 0 0;
       padding-left:18px;
       color:rgba(233,238,245,.88);
       font-size:15px;
     }
-    .card li{margin:8px 0;}
+    li{margin:8px 0;}
 
     footer{
-      margin-top:70px;
+      margin-top:24px;
       text-align:center;
       font-size:13px;
       color:rgba(233,238,245,.55);
-      padding-bottom: 10px;
+      padding-bottom:10px;
     }
   </style>
 </head>
@@ -142,7 +163,7 @@
 <body>
   <div class="wrap">
 
-    <!-- ✅ 메뉴(상단 네비) -->
+    <!-- ✅ 메뉴(메인과 동일) -->
     <nav class="nav">
       <a href="index.html" class="brand">정도HR</a>
       <div class="links">
@@ -156,43 +177,39 @@
 
     <!-- ✅ 회사소개 본문 -->
     <main class="hero">
-      <div class="title">회사소개</div>
+      <h1>회사소개</h1>
+      <p class="sub">정도HR은 제조·건설 현장을 기준으로 운영되는 인력 파트너입니다.
+단순 공급이 아니라 근태·안전·숙련도·이탈까지 고려해 현장 운영이 흔들리지 않도록 관리합니다.</p>
 
-      <div class="sub">
-정도HR은 제조·건설 현장을 기준으로 운영되는
-현장 중심 인력 파트너입니다.
+      <section class="card">
+        <p class="quote">“책임 없는 중개”가 아닌, 현장 조건에 맞춘 인력 운용 구조를 설계하고 관리합니다.</p>
 
-제조업과 건설 현장은 단순 인력 수급보다
-근태, 안전, 숙련도, 이탈 관리가 더 중요합니다.
+        <div class="grid">
+          <div class="box">
+            <div class="ttl">운영 철학</div>
+            <p class="txt">제조업과 건설 현장은 단순 인력 수급보다 현장 리스크 관리가 우선입니다.
+정도HR은 투입 이후까지 고려해 현장 안정성을 기준으로 운영합니다.</p>
+            <ul>
+              <li>근태·안전·이탈을 고려한 운영형 인력 관리</li>
+              <li>단기 투입보다 현장 안정성 우선</li>
+              <li>책임 없는 중개를 지양</li>
+            </ul>
+          </div>
 
-정도HR은 인력을 단순히 공급하지 않습니다.
-현장 조건에 맞춰 인력 운용 구조를 설계하고 관리합니다.
-      </div>
+          <div class="box">
+            <div class="ttl">지원 영역</div>
+            <p class="txt">현장 유형과 작업 특성에 맞춰 인력 구성을 설계하고,
+운영 과정에서 필요한 관리 포인트를 함께 정리합니다.</p>
+            <ul>
+              <li>제조업(생산·설비·물류) 운영 중심 인력 지원</li>
+              <li>건설업(현장 보조·기능 인력) 관리 중심 공급</li>
+              <li>협업 프로세스(요구조건·투입·운영·피드백) 정리</li>
+            </ul>
+          </div>
+        </div>
 
-      <div class="card">
-        <h3>운영 철학</h3>
-        <p>
-“책임 없는 중개”가 아닌,
-현장 조건에 맞춘 인력 운용 구조를 설계하고 관리합니다.
-        </p>
-
-        <ul>
-          <li>근태·안전·이탈을 고려한 운영형 인력 관리</li>
-          <li>단기 투입이 아닌 현장 안정성 우선</li>
-          <li>책임 없는 중개를 지양합니다</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>지원 영역</h3>
-        <ul>
-          <li>제조업(생산·설비·물류) 운영 중심 인력 지원</li>
-          <li>건설업(현장 보조·기능 인력) 관리 중심 공급</li>
-          <li>협업 프로세스(요구조건·투입·운영·피드백) 정리</li>
-        </ul>
-      </div>
-
-      <footer>© Jungdo HR. All rights reserved.</footer>
+        <footer>© Jungdo HR. All rights reserved.</footer>
+      </section>
     </main>
 
   </div>
