@@ -6,6 +6,11 @@
   <title>정도HR | 서비스</title>
 
   <style>
+    /* ✅ 스크롤바 항상 표시 (메뉴 위치 고정) */
+    html {
+      overflow-y: scroll;
+    }
+
     :root{
       --bg1:#071a2a; --bg2:#061423; --gold:#d8b04b;
       --text:#e9eef5; --muted:rgba(233,238,245,.78); --line:rgba(216,176,75,.22);
@@ -56,9 +61,6 @@
     .full{grid-column: span 12;}
     footer{margin-top:70px; text-align:center; font-size:13px; color:rgba(233,238,245,.55);}
 
-    /* ==========================================
-       ✅ 모바일 최적화 (600px 이하)
-       ========================================== */
     @media (max-width:600px){
       .container{
         padding:30px 10px;
