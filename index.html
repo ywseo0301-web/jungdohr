@@ -14,15 +14,14 @@
     }
     *{box-sizing:border-box;}
 
-    /* ✅ 핵심: 스크롤바 유무 때문에 메인만 흔들리는 문제 "완전 차단" */
     html{
-      overflow-y: scroll;                 /* 구형/기본 대응 */
-      scrollbar-gutter: stable;           /* 최신 브라우저: 스크롤바 공간 고정 */
+      overflow-y: scroll;
+      scrollbar-gutter: stable;
     }
 
     body{
       margin:0;
-      min-height: calc(100vh + 1px);      /* ✅ 메인도 무조건 세로 스크롤 생기게 강제 */
+      min-height: calc(100vh + 1px);
       background: radial-gradient(1200px 600px at 50% 30%, #0b2a40 0%, var(--bg1) 45%, var(--bg2) 100%);
       color:var(--text);
       font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",Arial,sans-serif;
@@ -30,10 +29,8 @@
       overflow-x:hidden;
     }
 
-    /* ✅ location.html과 wrap을 "완전 동일" */
     .wrap{width:min(1000px,92vw); margin:0 auto; padding:28px 18px 70px;}
 
-    /* ✅ location.html과 nav를 "완전 동일" */
     .nav{
       display:flex; align-items:center; justify-content:space-between; gap:14px;
       padding:14px 18px; border:1px solid var(--line); border-radius:16px;
@@ -46,7 +43,6 @@
     .links a:hover{opacity:1;}
     .links a.active{color:var(--gold); opacity:1;}
 
-    /* ✅ 메인 컨텐츠(레이아웃은 자유지만, nav 위치엔 영향 없음) */
     .hero{margin-top:10px; padding:20px 18px 40px; text-align:center;}
 
     .logoImg{
@@ -57,7 +53,6 @@
       filter: drop-shadow(0 14px 24px rgba(0,0,0,.35));
     }
 
-    /* ✅ SEO H1은 화면 밖으로 빼되, 레이아웃에 영향 0 */
     .sr-only{
       position:absolute;
       width:1px; height:1px;
@@ -111,10 +106,6 @@
       font-size:14px;
       border-top:1px solid rgba(216,176,75,.12);
       background:rgba(0,0,0,.10);
-    }
-    @media (max-width:820px){
-      .photoGrid{grid-template-columns:1fr;}
-      .photoCard img{height:220px;}
     }
 
     .card{
@@ -190,6 +181,96 @@
       font-size:13px;
       color:rgba(233,238,245,.55);
     }
+
+    /* ==========================================
+       ✅ 모바일 최적화 (600px 이하)
+       ========================================== */
+    @media (max-width:600px){
+      .logoImg{
+        width: min(280px, 80vw);
+        margin: 12px auto 12px;
+      }
+
+      .subtitle{
+        font-size:17px;
+        margin-bottom:20px;
+        line-height:1.5;
+      }
+
+      .text{
+        font-size:14px;
+        margin: 10px 0;
+      }
+
+      .photoGrid{
+        grid-template-columns:1fr;
+        gap:14px;
+        margin-top:32px;
+      }
+      
+      .photoCard img{
+        height:200px;
+      }
+
+      .photoCard figcaption{
+        font-size:13px;
+        padding:10px;
+      }
+
+      .card{
+        padding:18px;
+        margin-top:28px;
+      }
+
+      .card ul{
+        padding-left:16px;
+        font-size:14px;
+      }
+
+      .card li{
+        margin:8px 0;
+      }
+
+      .support{
+        padding:16px 18px;
+        margin-top:14px;
+      }
+
+      .support .ttl{
+        font-size:14px;
+      }
+
+      .support p{
+        font-size:14px;
+      }
+
+      .cta{
+        padding:16px 18px;
+        margin-top:14px;
+      }
+
+      .cta .msg{
+        font-size:14px;
+      }
+
+      .cta a{
+        font-size:16px;
+      }
+
+      .links{
+        gap:10px;
+      }
+
+      .links a{
+        font-size:13px;
+        padding:5px 2px;
+      }
+
+      footer{
+        margin-top:40px;
+        font-size:12px;
+      }
+    }
   </style>
 </head>
 
@@ -244,8 +325,8 @@
       <section class="support" aria-label="지원 대상 및 운영 방식">
         <div class="ttl">지원 범위</div>
         <p>• 제조업 생산·설비·물류 현장
-• 건설 현장 보조 및 기능 인력 운영
-• 중소·중견 현장 중심 협업</p>
+- 건설 현장 보조 및 기능 인력 운영
+- 중소·중견 현장 중심 협업</p>
 
         <div class="ttl" style="margin-top:14px;">운영 방향</div>
         <p>투입 후 관리 부담을 줄이는 운영 방식을 지향합니다.</p>
@@ -255,7 +336,7 @@
         <p class="msg">현장 조건에 맞는 인력 운영이 필요하시면</p>
         <a href="tel:010-3898-6615">📞 010-3898-6615</a>
         <div style="margin-top:6px; color:rgba(233,238,245,.65); font-size:13px;">
-          전화 연결이 어려우시면 문자로 “현장/지역/필요인원/기간”을 남겨주세요.
+          전화 연결이 어려우시면 문자로 "현장/지역/필요인원/기간"을 남겨주세요.
         </div>
       </section>
 
