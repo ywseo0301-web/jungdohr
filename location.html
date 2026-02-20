@@ -4,226 +4,106 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>정도HR | 오시는길</title>
-
   <style>
-    /* ✅ 스크롤바 항상 표시 (메뉴 위치 고정) */
-    html {
-      overflow-y: scroll;
-    }
-
-    :root{
-      --bg1:#071a2a; --bg2:#061423; --gold:#d8b04b;
-      --text:#e9eef5; --muted:rgba(233,238,245,.78); --line:rgba(216,176,75,.22);
-    }
-    *{box-sizing:border-box;}
-    body{
-      margin:0; min-height:100vh;
-      background: radial-gradient(1200px 600px at 50% 30%, #0b2a40 0%, var(--bg1) 45%, var(--bg2) 100%);
-      color:var(--text);
-      font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",Arial,sans-serif;
-      line-height:1.7;
-    }
-    .wrap{width:min(1000px,92vw); margin:0 auto; padding:28px 18px 70px;}
-
-    .nav{
-      display:flex; align-items:center; justify-content:space-between; gap:14px;
-      padding:14px 18px; border:1px solid var(--line); border-radius:16px;
-      background:rgba(0,0,0,.14); backdrop-filter: blur(6px);
-      position:sticky; top:16px; z-index:10;
-    }
-    .brand{font-weight:900; color:var(--gold); text-decoration:none; font-size:18px;}
-    .links{display:flex; gap:16px; flex-wrap:wrap; justify-content:flex-end;}
-    .links a{color:var(--text); text-decoration:none; font-weight:700; font-size:14px; opacity:.85; padding:6px 2px;}
+    html{overflow-y:scroll;overflow-x:hidden;scrollbar-gutter:stable;}
+    :root{--bg1:#071a2a;--bg2:#061423;--gold:#d8b04b;--text:#e9eef5;--muted:rgba(233,238,245,.78);--line:rgba(216,176,75,.22);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{min-height:100vh;background:radial-gradient(1200px 600px at 50% 30%,#0b2a40 0%,var(--bg1) 45%,var(--bg2) 100%);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",Arial,sans-serif;line-height:1.7;overflow-x:hidden;width:100%;max-width:100%;}
+    .wrap{width:100%;max-width:1000px;margin:0 auto;padding:28px 18px 70px;}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(0,0,0,.14);backdrop-filter:blur(6px);position:sticky;top:16px;z-index:10;}
+    .brand{font-weight:900;color:var(--gold);text-decoration:none;font-size:18px;white-space:nowrap;flex-shrink:0;}
+    .links{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end;}
+    .links a{color:var(--text);text-decoration:none;font-weight:700;font-size:14px;opacity:.85;padding:6px 2px;white-space:nowrap;}
     .links a:hover{opacity:1;}
-    .links a.active{color:var(--gold); opacity:1;}
-
-    .container{margin-top:34px; padding:22px 10px 10px; text-align:center;}
-    h1{margin:10px 0 8px; font-size:42px; letter-spacing:-.5px;}
-    .sub{color:var(--muted); margin:0 0 18px; font-size:16px;}
-
-    .mapWrap{
-      width:min(900px,92vw);
-      margin:0 auto 22px;
-      border:1px solid var(--line);
-      border-radius:16px;
-      background:rgba(0,0,0,.12);
-      overflow:hidden;
-    }
-    .mapWrap iframe{
-      width:100%;
-      height:480px;
-      border:0;
-      display:block;
-    }
-
-    .btns{
-      display:flex; gap:10px; flex-wrap:wrap;
-      padding:12px;
-      border-top:1px solid rgba(216,176,75,.14);
-      justify-content:center;
-      background:rgba(0,0,0,.10);
-    }
-    .btn{
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:12px;
-      text-decoration:none;
-      font-weight:800;
-      font-size:14px;
-      color:var(--text);
-      border:1px solid rgba(233,238,245,.18);
-      opacity:.95;
-      white-space:nowrap;
-    }
-    .btn.primary{ border:1px solid rgba(216,176,75,.35); }
+    .links a.active{color:var(--gold);opacity:1;}
+    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:11;}
+    .hamburger span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;border-radius:2px;transition:all .3s;}
+    .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,5px);}
+    .hamburger.active span:nth-child(2){opacity:0;}
+    .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(4px,-5px);}
+    .container{margin-top:34px;padding:22px 10px 10px;text-align:center;}
+    h1{margin:10px 0 8px;font-size:42px;letter-spacing:-.5px;}
+    .sub{color:var(--muted);margin:0 0 18px;font-size:16px;}
+    .mapWrap{width:100%;max-width:900px;margin:0 auto 22px;border:1px solid var(--line);border-radius:16px;background:rgba(0,0,0,.12);overflow:hidden;}
+    .mapWrap iframe{width:100%;height:480px;border:0;display:block;}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;padding:12px;border-top:1px solid rgba(216,176,75,.14);justify-content:center;background:rgba(0,0,0,.10);}
+    .btn{display:inline-block;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:800;font-size:14px;color:var(--text);border:1px solid rgba(233,238,245,.18);opacity:.95;white-space:nowrap;}
+    .btn.primary{border:1px solid rgba(216,176,75,.35);}
     .btn:hover{opacity:1;}
+    .box{width:100%;max-width:900px;margin:0 auto;padding:22px;border:1px solid var(--line);border-radius:16px;background:rgba(0,0,0,.12);text-align:left;}
+    .row{display:flex;gap:18px;flex-wrap:wrap;}
+    .col{flex:1;min-width:260px;}
+    .label{color:rgba(233,238,245,.9);font-weight:800;margin-bottom:6px;}
+    .value{color:var(--muted);margin:0 0 14px;}
+    footer{margin-top:34px;text-align:center;font-size:13px;color:rgba(233,238,245,.55);}
 
-    .box{
-      width:min(900px, 92vw);
-      margin:0 auto;
-      padding:22px;
-      border:1px solid var(--line);
-      border-radius:16px;
-      background:rgba(0,0,0,.12);
-      text-align:left;
-    }
-    .row{display:flex; gap:18px; flex-wrap:wrap;}
-    .col{flex:1; min-width:260px;}
-    .label{color:rgba(233,238,245,.9); font-weight:800; margin-bottom:6px;}
-    .value{color:var(--muted); margin:0 0 14px;}
-
-    footer{margin-top:34px; text-align:center; font-size:13px; color:rgba(233,238,245,.55);}
-
-    /* ==========================================
-       ✅ 모바일 최적화 (600px 이하)
-       ========================================== */
-    @media (max-width:600px){
-      h1{
-        font-size:32px;
-        margin:8px 0 6px;
-      }
-
-      .sub{
-        font-size:14px;
-        margin-bottom:14px;
-        line-height:1.5;
-      }
-
-      .mapWrap iframe{
-        height:350px;
-      }
-
-      .btns{
-        flex-direction:column;
-        padding:10px;
-        gap:8px;
-      }
-
-      .btn{
-        width:100%;
-        padding:12px 16px;
-        font-size:14px;
-      }
-
-      .box{
-        padding:18px;
-      }
-
-      .row{
-        flex-direction:column;
-        gap:12px;
-      }
-
-      .col{
-        min-width:100%;
-      }
-
-      .label{
-        font-size:14px;
-        margin-bottom:4px;
-      }
-
-      .value{
-        font-size:14px;
-        margin-bottom:12px;
-      }
-
-      .links{
-        gap:10px;
-      }
-
-      .links a{
-        font-size:13px;
-        padding:5px 2px;
-      }
-
-      footer{
-        margin-top:28px;
-        font-size:12px;
-      }
+    @media(max-width:600px){
+      .wrap{padding:16px 14px 50px;}
+      .hamburger{display:block;}
+      .links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(7,26,42,.97);flex-direction:column;align-items:center;justify-content:center;gap:0;z-index:10;}
+      .links.active{display:flex;}
+      .links a{font-size:20px;padding:18px 40px;width:100%;text-align:center;border-bottom:1px solid rgba(255,255,255,.06);}
+      h1{font-size:32px;margin:8px 0 6px;}
+      .sub{font-size:14px;margin-bottom:14px;line-height:1.5;}
+      .mapWrap iframe{height:350px;}
+      .btns{flex-direction:column;padding:10px;gap:8px;}
+      .btn{width:100%;padding:12px 16px;font-size:14px;}
+      .box{padding:18px;}
+      .row{flex-direction:column;gap:12px;}
+      .col{min-width:100%;}
+      .label{font-size:14px;margin-bottom:4px;}
+      .value{font-size:14px;margin-bottom:12px;}
+      footer{margin-top:28px;font-size:12px;}
     }
   </style>
 </head>
-
 <body>
   <div class="wrap">
     <nav class="nav">
       <a href="index.html" class="brand">정도HR</a>
-      <div class="links">
+      <div class="links" id="navLinks">
         <a href="index.html">메인</a>
         <a href="about.html">회사소개</a>
         <a href="service.html">서비스</a>
         <a href="location.html" class="active">오시는길</a>
         <a href="notice.html">공지</a>
       </div>
+      <button class="hamburger" id="hamburger" aria-label="메뉴"><span></span><span></span><span></span></button>
     </nav>
-
     <main class="container">
       <h1>오시는길</h1>
       <p class="sub">경기도 안성시 공도읍 서동대로 4060-3</p>
-
       <div class="mapWrap">
-        <iframe
-          src="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%95%88%EC%84%B1%EC%8B%9C%20%EA%B3%B5%EB%8F%84%EC%9D%8D%20%EC%84%9C%EB%8F%99%EB%8C%80%EB%A1%9C%204060-3"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen>
-        </iframe>
-
+        <iframe src="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%95%88%EC%84%B1%EC%8B%9C%20%EA%B3%B5%EB%8F%84%EC%9D%8D%20%EC%84%9C%EB%8F%99%EB%8C%80%EB%A1%9C%204060-3" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         <div class="btns">
-          <a class="btn primary" target="_blank"
-             href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%95%88%EC%84%B1%EC%8B%9C%20%EA%B3%B5%EB%8F%84%EC%9D%8D%20%EC%84%9C%EB%8F%99%EB%8C%80%EB%A1%9C%204060-3">
-            네이버 지도에서 열기
-          </a>
-          <a class="btn" target="_blank"
-             href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%95%88%EC%84%B1%EC%8B%9C%20%EA%B3%B5%EB%8F%84%EC%9D%8D%20%EC%84%9C%EB%8F%99%EB%8C%80%EB%A1%9C%204060-3">
-            길찾기 / 경로 보기
-          </a>
+          <a class="btn primary" target="_blank" href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%95%88%EC%84%B1%EC%8B%9C%20%EA%B3%B5%EB%8F%84%EC%9D%8D%20%EC%84%9C%EB%8F%99%EB%8C%80%EB%A1%9C%204060-3">네이버 지도에서 열기</a>
+          <a class="btn" target="_blank" href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%95%88%EC%84%B1%EC%8B%9C%20%EA%B3%B5%EB%8F%84%EC%9D%8D%20%EC%84%9C%EB%8F%99%EB%8C%80%EB%A1%9C%204060-3">길찾기 / 경로 보기</a>
         </div>
       </div>
-
       <div class="box">
         <div class="row">
           <div class="col">
             <div class="label">주소</div>
             <p class="value">경기도 안성시 공도읍 서동대로 4060-3</p>
-
             <div class="label">연락</div>
             <p class="value">010-3898-6615</p>
           </div>
-
           <div class="col">
             <div class="label">안내</div>
             <p class="value">정식 오픈 전에는 현장 상담/협업 중심으로 운영됩니다.</p>
-
             <div class="label">비고</div>
             <p class="value">지도가 로딩되지 않으면 위 버튼으로 지도 페이지를 열어주세요.</p>
           </div>
         </div>
       </div>
-
       <footer>© Jungdo HR. All rights reserved.</footer>
     </main>
   </div>
+  <script>
+    var hb=document.getElementById('hamburger'),nv=document.getElementById('navLinks');
+    hb.addEventListener('click',function(){hb.classList.toggle('active');nv.classList.toggle('active');});
+    nv.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){hb.classList.remove('active');nv.classList.remove('active');});});
+    window.addEventListener('resize',function(){if(window.innerWidth>600){hb.classList.remove('active');nv.classList.remove('active');}});
+  </script>
 </body>
 </html>
