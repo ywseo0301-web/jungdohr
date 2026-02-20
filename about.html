@@ -13,15 +13,20 @@
     .wrap{width:100%;max-width:1000px;margin:0 auto;padding:28px 18px 70px;}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 18px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(0,0,0,.14);backdrop-filter:blur(6px);position:sticky;top:16px;z-index:10;}
     .brand{font-weight:900;color:var(--gold);text-decoration:none;font-size:18px;white-space:nowrap;flex-shrink:0;}
-    .links{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end;}
-    .links a{color:var(--text);text-decoration:none;font-weight:700;font-size:14px;opacity:.85;padding:6px 2px;white-space:nowrap;}
-    .links a:hover{opacity:1;}
-    .links a.active{color:var(--gold);opacity:1;}
+    .desktop-links{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end;}
+    .desktop-links a{color:var(--text);text-decoration:none;font-weight:700;font-size:14px;opacity:.85;padding:6px 2px;white-space:nowrap;}
+    .desktop-links a:hover{opacity:1;}
+    .desktop-links a.active{color:var(--gold);opacity:1;}
     .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:11;}
     .hamburger span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;border-radius:2px;transition:all .3s;}
     .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,5px);}
     .hamburger.active span:nth-child(2){opacity:0;}
     .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(4px,-5px);}
+    .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(7,26,42,.98);flex-direction:column;align-items:center;justify-content:flex-start;padding-top:80px;z-index:9999;overflow-y:auto;}
+    .mobile-menu.active{display:flex;}
+    .mobile-menu a{color:var(--text);text-decoration:none;font-weight:700;font-size:18px;padding:16px 40px;width:100%;text-align:center;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0;}
+    .mobile-menu a:hover{opacity:1;}
+    .mobile-menu a.active{color:var(--gold);}
     .hero{margin-top:34px;padding:52px 18px 28px;text-align:center;}
     h1{margin:0 0 12px;font-size:44px;letter-spacing:-.8px;}
     .lead{margin:0 auto;color:var(--muted);font-size:16px;max-width:860px;white-space:pre-line;}
@@ -60,9 +65,7 @@
     @media(max-width:600px){
       .wrap{padding:16px 14px 50px;}
       .hamburger{display:block;}
-      .links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(7,26,42,.97);flex-direction:column;align-items:center;justify-content:flex-start;padding-top:80px;gap:0;z-index:10;overflow-y:auto;}
-      .links.active{display:flex;}
-      .links a{font-size:18px;padding:16px 40px;width:100%;text-align:center;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0;}
+      .desktop-links{display:none;}
       h1{font-size:32px;margin-bottom:10px;}
       .lead{display:none;}
       .lead-short{display:block;margin:0 auto;color:var(--muted);font-size:15px;line-height:1.6;}
@@ -95,7 +98,7 @@
   <div class="wrap">
     <nav class="nav">
       <a href="index.html" class="brand">정도HR</a>
-      <div class="links" id="navLinks">
+      <div class="desktop-links">
         <a href="index.html">메인</a>
         <a href="about.html" class="active">회사소개</a>
         <a href="service.html">서비스</a>
@@ -104,6 +107,13 @@
       </div>
       <button class="hamburger" id="hamburger" aria-label="메뉴"><span></span><span></span><span></span></button>
     </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">메인</a>
+      <a href="about.html" class="active">회사소개</a>
+      <a href="service.html">서비스</a>
+      <a href="location.html">오시는길</a>
+      <a href="notice.html">공지</a>
+    </div>
     <main class="hero">
       <h1>회사소개</h1>
       <p class="lead">정도HR은 제조·건설 현장을 기준으로 운영되는 인력 파트너입니다.
@@ -119,25 +129,13 @@
       <div class="sectionTitle">왜 정도HR인가</div>
       <div class="sectionDesc">현장 운영을 "사람 수급"이 아니라 "운영 관리" 관점에서 설계합니다.</div>
       <div class="grid3">
-        <div class="box">
-          <div class="kicker">✅ 현장 기준 세팅</div>
-          <p class="txt">근태·안전·이탈 기준을 먼저 정리하고,
-현장 특성에 맞는 투입 기준과 운영 포인트를 설정합니다.</p>
-          <div class="chipRow"><span class="chip">근태 기준</span><span class="chip">안전 준수</span><span class="chip">이탈 리스크</span></div>
-        </div>
-        <div class="box">
-          <div class="kicker">✅ 투입 이후 운영관리</div>
-          <p class="txt">투입이 끝이 아니라 시작입니다.
+        <div class="box"><div class="kicker">✅ 현장 기준 세팅</div><p class="txt">근태·안전·이탈 기준을 먼저 정리하고,
+현장 특성에 맞는 투입 기준과 운영 포인트를 설정합니다.</p><div class="chipRow"><span class="chip">근태 기준</span><span class="chip">안전 준수</span><span class="chip">이탈 리스크</span></div></div>
+        <div class="box"><div class="kicker">✅ 투입 이후 운영관리</div><p class="txt">투입이 끝이 아니라 시작입니다.
 현장 안정성과 지속성을 우선으로 운영하며,
-관리 부담이 커지지 않도록 운영 흐름을 맞춥니다.</p>
-          <div class="chipRow"><span class="chip">현장 안정성</span><span class="chip">지속 운영</span><span class="chip">관리 부담 절감</span></div>
-        </div>
-        <div class="box">
-          <div class="kicker">✅ 피드백 기반 개선</div>
-          <p class="txt">현장 피드백을 반영해 투입·운영·재배치를 개선합니다.
-반복 투입일수록 품질이 좋아지는 구조를 지향합니다.</p>
-          <div class="chipRow"><span class="chip">피드백</span><span class="chip">재배치</span><span class="chip">개선</span></div>
-        </div>
+관리 부담이 커지지 않도록 운영 흐름을 맞춥니다.</p><div class="chipRow"><span class="chip">현장 안정성</span><span class="chip">지속 운영</span><span class="chip">관리 부담 절감</span></div></div>
+        <div class="box"><div class="kicker">✅ 피드백 기반 개선</div><p class="txt">현장 피드백을 반영해 투입·운영·재배치를 개선합니다.
+반복 투입일수록 품질이 좋아지는 구조를 지향합니다.</p><div class="chipRow"><span class="chip">피드백</span><span class="chip">재배치</span><span class="chip">개선</span></div></div>
       </div>
     </section>
     <section class="section card pad">
@@ -154,21 +152,9 @@
       <div class="sectionTitle">지원 분야</div>
       <div class="sectionDesc">제조·건설 현장 중심으로, 중소·중견 현장과의 실무 협업을 지향합니다.</div>
       <div class="grid3">
-        <div class="box">
-          <div class="kicker">🏭 제조업 현장</div>
-          <p class="txt">생산·설비·물류 라인 특성에 맞춰 운영 중심 인력 지원 및 관리 기준을 적용합니다.</p>
-          <div class="chipRow"><span class="chip">생산</span><span class="chip">설비</span><span class="chip">물류</span></div>
-        </div>
-        <div class="box">
-          <div class="kicker">🏗️ 건설 현장</div>
-          <p class="txt">현장 보조 및 기능 인력 운영에 필요한 안전·근태·이탈 관리 기준을 함께 운영합니다.</p>
-          <div class="chipRow"><span class="chip">현장 보조</span><span class="chip">기능 인력</span><span class="chip">안전 기준</span></div>
-        </div>
-        <div class="box">
-          <div class="kicker">🤝 협업 대상</div>
-          <p class="txt">중소·중견 현장 중심으로, 요구조건·투입·운영·피드백 협업 프로세스를 정리해 현장 운영이 흔들리지 않게 맞춥니다.</p>
-          <div class="chipRow"><span class="chip">중소·중견</span><span class="chip">협업 프로세스</span><span class="chip">현장 안정성</span></div>
-        </div>
+        <div class="box"><div class="kicker">🏭 제조업 현장</div><p class="txt">생산·설비·물류 라인 특성에 맞춰 운영 중심 인력 지원 및 관리 기준을 적용합니다.</p><div class="chipRow"><span class="chip">생산</span><span class="chip">설비</span><span class="chip">물류</span></div></div>
+        <div class="box"><div class="kicker">🏗️ 건설 현장</div><p class="txt">현장 보조 및 기능 인력 운영에 필요한 안전·근태·이탈 관리 기준을 함께 운영합니다.</p><div class="chipRow"><span class="chip">현장 보조</span><span class="chip">기능 인력</span><span class="chip">안전 기준</span></div></div>
+        <div class="box"><div class="kicker">🤝 협업 대상</div><p class="txt">중소·중견 현장 중심으로, 요구조건·투입·운영·피드백 협업 프로세스를 정리해 현장 운영이 흔들리지 않게 맞춥니다.</p><div class="chipRow"><span class="chip">중소·중견</span><span class="chip">협업 프로세스</span><span class="chip">현장 안정성</span></div></div>
       </div>
     </section>
     <section class="section card pad">
@@ -198,10 +184,10 @@
     <footer>© Jungdo HR. All rights reserved.</footer>
   </div>
   <script>
-    var hb=document.getElementById('hamburger'),nv=document.getElementById('navLinks');
-    hb.addEventListener('click',function(){hb.classList.toggle('active');nv.classList.toggle('active');});
-    nv.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){hb.classList.remove('active');nv.classList.remove('active');});});
-    window.addEventListener('resize',function(){if(window.innerWidth>600){hb.classList.remove('active');nv.classList.remove('active');}});
+    var hb=document.getElementById('hamburger'),mm=document.getElementById('mobileMenu');
+    hb.addEventListener('click',function(){hb.classList.toggle('active');mm.classList.toggle('active');});
+    mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){hb.classList.remove('active');mm.classList.remove('active');});});
+    window.addEventListener('resize',function(){if(window.innerWidth>600){hb.classList.remove('active');mm.classList.remove('active');}});
   </script>
 </body>
 </html>
