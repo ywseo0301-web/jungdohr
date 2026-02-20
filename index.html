@@ -6,7 +6,7 @@
   <title>정도HR | 제조·건설 현장 인력 파트너</title>
   <meta name="description" content="정도HR은 제조·건설 현장을 기준으로 근태·안전·숙련도·이탈 관리를 포함한 운영 중심 인력공급 및 관리 지원을 제공합니다." />
   <style>
-    html{overflow-y:scroll; overflow-x:hidden; scrollbar-gutter:stable;}
+    html{overflow-y:scroll;overflow-x:hidden;scrollbar-gutter:stable;}
     :root{--bg1:#071a2a;--bg2:#061423;--gold:#d8b04b;--text:#e9eef5;--muted:rgba(233,238,245,.78);--line:rgba(216,176,75,.22);}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     body{min-height:100vh;background:radial-gradient(1200px 600px at 50% 30%,#0b2a40 0%,var(--bg1) 45%,var(--bg2) 100%);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",Arial,sans-serif;line-height:1.7;overflow-x:hidden;width:100%;max-width:100%;}
@@ -46,9 +46,9 @@
     @media(max-width:600px){
       .wrap{padding:16px 14px 50px;}
       .hamburger{display:block;}
-      .links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(7,26,42,.97);flex-direction:column;align-items:center;justify-content:center;gap:0;z-index:10;}
+      .links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(7,26,42,.97);flex-direction:column;align-items:center;justify-content:flex-start;padding-top:80px;gap:0;z-index:10;overflow-y:auto;}
       .links.active{display:flex;}
-      .links a{font-size:20px;padding:18px 40px;width:100%;text-align:center;border-bottom:1px solid rgba(255,255,255,.06);}
+      .links a{font-size:18px;padding:16px 40px;width:100%;text-align:center;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0;}
       .logoImg{max-width:280px;margin:12px auto;}
       .subtitle{font-size:17px;margin-bottom:20px;line-height:1.5;}
       .text{font-size:14px;margin:10px 0;}
