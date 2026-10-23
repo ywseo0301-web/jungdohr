@@ -3,246 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>시공사례 | 정도클린</title>
-<style>
-:root { --blue: #1B6FC9; --blue-dark: #0F2A44; --teal: #12B0A6; --bg-soft: #F6FAFC; --text-body: #5B6B7D; --border: #E7EAEE; }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; color: var(--blue-dark); line-height: 1.6; background: #fff; padding-bottom: 72px; }
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
-img { max-width: 100%; display: block; }
-.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
-.site-header { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid var(--border); }
-.site-header .wrap { height: 60px; display: flex; align-items: center; justify-content: space-between; }
-.site-header .logo img { height: 26px; }
-.site-nav { display: none; gap: 28px; }
-.site-nav a { font-size: 14px; font-weight: 700; color: var(--blue-dark); }
-.site-nav a.active { color: var(--blue); }
-.nav-toggle { font-size: 22px; background: none; border: none; color: var(--blue-dark); cursor: pointer; }
-.header-call-btn { display: none; padding: 9px 18px; background: var(--blue); color: #fff; font-size: 13px; font-weight: 700; border-radius: 8px; }
-.mobile-menu { display: none; flex-direction: column; background: #fff; border-bottom: 1px solid var(--border); }
-.mobile-menu.open { display: flex; }
-.mobile-menu a { padding: 14px 20px; font-size: 14px; font-weight: 700; border-top: 1px solid #F2F2F2; color: var(--blue-dark); }
-.hero { background: linear-gradient(160deg, #EAF4FF 0%, #E7F8F4 100%); padding: 56px 0 48px; text-align: center; }
-.hero .hero-logo { width: 180px; margin: 0 auto 20px; }
-.hero h1 { font-size: 24px; font-weight: 700; line-height: 1.5; margin-bottom: 10px; }
-.hero p { font-size: 14px; color: var(--text-body); margin-bottom: 24px; }
-.btn { display: inline-block; padding: 14px 28px; border-radius: 10px; font-size: 15px; font-weight: 700; border: none; cursor: pointer; }
-.btn-primary { background: var(--blue); color: #fff; }
-.btn-outline { background: #fff; color: var(--blue); border: 1px solid var(--blue); }
-.btn-block { display: block; width: 100%; text-align: center; }
-.section { padding: 44px 0 8px; }
-.section-title { font-size: 19px; font-weight: 700; margin-bottom: 6px; }
-.section-sub { font-size: 13px; color: var(--text-body); margin-bottom: 24px; }
-.service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-.service-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; }
-.service-card img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
-.service-card .card-foot { padding: 12px 14px; }
-.service-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
-.service-card p { font-size: 12px; color: var(--text-body); }
-.service-banner { width: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 20px; }
-.service-banner img { width: 100%; display: block; }
-.trust-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 40px; }
-.trust-item { text-align: center; padding: 18px 8px; background: var(--bg-soft); border-radius: 10px; }
-.trust-item .label { font-size: 12px; font-weight: 700; color: var(--blue-dark); line-height: 1.5; }
-.tabs { display: flex; gap: 8px; padding: 20px 0; flex-wrap: wrap; }
-.tab { flex: 1; min-width: 70px; text-align: center; padding: 10px 6px; border-radius: 8px; font-size: 13px; font-weight: 700; border: 1px solid var(--border); color: var(--text-body); }
-.tab.active { background: var(--blue); color: #fff; border: none; }
-.detail-card { border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 20px; }
-.detail-card .tag { display: inline-block; font-size: 11px; font-weight: 700; color: var(--blue); background: #EAF4FF; padding: 4px 10px; border-radius: 20px; margin-bottom: 12px; }
-.detail-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
-.detail-card p { font-size: 14px; color: var(--text-body); }
-.check-list li { font-size: 13px; color: #444; padding: 10px 0; border-bottom: 1px solid #F0F0F0; display: flex; align-items: center; gap: 8px; }
-.check-list li:before { content: "✓"; color: var(--teal); font-weight: 700; }
-.notice { background: var(--bg-soft); border-radius: 10px; padding: 18px 20px; font-size: 13px; color: var(--text-body); margin-bottom: 24px; }
-.notice b { color: var(--blue-dark); }
-.price-item { border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; margin-bottom: 12px; }
-.price-item h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
-.price-item p { font-size: 13px; color: var(--text-body); }
-.price-item .basis { display: inline-block; margin-top: 10px; font-size: 12px; color: var(--teal); font-weight: 700; }
-.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 20px 0; }
-.gallery-item { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
-.gallery-img { height: 140px; background: linear-gradient(135deg, #DDEBF9, #D8F2EE); display: flex; align-items: center; justify-content: center; font-size: 12px; color: #8A93A0; }
-.gallery-label { padding: 10px 12px; font-size: 12px; font-weight: 700; }
-.phone-card { background: var(--blue); border-radius: 16px; padding: 40px 24px; text-align: center; margin: 24px 0; }
-.phone-card .label { font-size: 13px; color: #DCEBFB; margin-bottom: 10px; }
-.phone-card .number { font-size: 28px; font-weight: 700; color: #fff; }
-.phone-card .hint { font-size: 12px; color: #DCEBFB; margin-top: 12px; }
-.info-box { background: var(--bg-soft); border-radius: 10px; padding: 18px 20px; font-size: 13px; color: var(--text-body); }
-.info-box b { color: var(--blue-dark); }
-.map-box { height: 260px; border-radius: 12px; background: repeating-linear-gradient(45deg, #F0F0F2, #F0F0F2 10px, #E9E9EC 10px, #E9E9EC 20px); display: flex; align-items: center; justify-content: center; font-size: 13px; color: #999; border: 1px solid var(--border); margin-top: 12px; }
-.address { font-size: 13px; color: var(--text-body); margin-top: 10px; text-align: center; }
-.footer-cta { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid var(--border); padding: 10px 16px; z-index: 100; }
-.footer-cta .btn { width: 100%; }
-.site-footer { margin-top: 60px; padding: 30px 0 90px; text-align: center; font-size: 12px; color: #A0A8B2; border-top: 1px solid var(--border); }
-.case-tabs { display: flex; gap: 8px; padding: 22px 0 18px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.case-tab { flex: 0 0 auto; min-height: 40px; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; border: 1px solid var(--border); background: #fff; color: var(--text-body); cursor: pointer; font-family: inherit; }
-.case-tab.active { background: var(--blue); border-color: var(--blue); color: #fff; }
-.case-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-.case-card { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: #fff; }
-.case-card button { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
-.case-card img { width: 100%; height: auto; aspect-ratio: 1700 / 1190; object-fit: cover; }
-.case-foot { padding: 12px 16px 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-.case-foot h3 { font-size: 15px; font-weight: 700; }
-.case-foot p { font-size: 12px; color: var(--text-body); }
-.case-tag { flex: 0 0 auto; font-size: 11px; font-weight: 700; color: var(--blue); background: #EAF4FF; padding: 4px 10px; border-radius: 20px; }
-.case-note { font-size: 12px; color: var(--text-body); text-align: center; margin-top: 18px; }
-.case-cta { background: var(--bg-soft); border-radius: 14px; padding: 28px 20px; text-align: center; margin-top: 28px; }
-.case-cta h2 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
-.case-cta p { font-size: 13px; color: var(--text-body); margin-bottom: 16px; }
-.case-cta .btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-.lightbox { position: fixed; inset: 0; background: rgba(10, 20, 32, .92); display: none; align-items: center; justify-content: center; padding: 16px; z-index: 200; }
-.lightbox.open { display: flex; }
-.lightbox img { max-width: 100%; max-height: 88vh; border-radius: 10px; }
-.lightbox-close { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #fff; color: var(--blue-dark); font-size: 22px; font-weight: 700; cursor: pointer; }
-@media (min-width: 768px) {
-  .case-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
-  body { padding-bottom: 0; }
-  .site-nav { display: flex; }
-  .nav-toggle { display: none; }
-  .header-call-btn { display: inline-block; }
-  .mobile-menu { display: none !important; }
-  .hero { padding: 90px 0 70px; }
-  .hero .hero-logo { width: 220px; }
-  .hero h1 { font-size: 34px; }
-  .hero p { font-size: 16px; }
-  .service-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .trust-row { max-width: 640px; margin-left: auto; margin-right: auto; }
-  .gallery { grid-template-columns: repeat(4, 1fr); }
-  .footer-cta { display: none; }
-  .site-footer { padding: 40px 0; }
-  .section { padding: 64px 0 8px; }
-}
-</style>
+<title>시공사례 | 정도클린 실제 청소 전후 사진</title>
+<meta name="description" content="정도클린이 직접 작업한 욕실, 주방, 냉장고, 베란다 청소 전·후 실제 사진 9건.">
+<link rel="canonical" href="https://www.jungdohr.co.kr/portfolio.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="정도클린">
+<meta property="og:title" content="시공사례 | 정도클린 실제 청소 전후 사진">
+<meta property="og:description" content="정도클린이 직접 작업한 욕실, 주방, 냉장고, 베란다 청소 전·후 실제 사진 9건.">
+<meta property="og:url" content="https://www.jungdohr.co.kr/portfolio.html">
+<meta property="og:image" content="https://www.jungdohr.co.kr/assets/og-image.jpg">
+<meta name="theme-color" content="#027BC5">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/pretendard-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<header class="site-header">
+<header class="hd" id="hd">
   <div class="wrap">
-    <a class="logo" href="index.html"><img src="logo.png" alt="정도클린"></a>
-    <nav class="site-nav">
-      <a href="index.html">메인</a>
-      <a href="service.html">서비스</a>
-      <a href="price.html">요금안내</a>
-      <a href="portfolio.html" class="active">시공사례</a>
-      <a href="contact.html">문의</a>
-      <a href="about.html">회사소개</a>
-    </nav>
-    <a class="header-call-btn" href="tel:010-8209-6615">📞 010-8209-6615</a>
-    <button class="nav-toggle" id="navToggle" aria-label="메뉴">≡</button>
+    <a class="logo" href="index.html" aria-label="정도클린 홈"><img src="assets/logo-h.png" alt="정도클린 JUNGDO CLEAN" width="713" height="112"></a>
+    <nav class="nav" aria-label="주요 메뉴"><a href="service.html">서비스</a><a href="portfolio.html" class="on" aria-current="page">시공사례</a><a href="price.html">요금안내</a><a href="about.html">회사소개</a><a href="contact.html">문의</a></nav>
+    <a class="hd-call tel" href="tel:010-8209-6615"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span><b>010-8209-6615</b><small>상담 07:00 ~ 23:00</small></span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mnav">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
   </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">메인</a>
-    <a href="service.html">서비스</a>
-    <a href="price.html">요금안내</a>
-    <a href="portfolio.html">시공사례</a>
-    <a href="contact.html">문의</a>
-    <a href="about.html">회사소개</a>
-  </div>
+  <nav class="mnav" id="mnav" aria-label="모바일 메뉴"><a href="service.html">서비스</a><a href="portfolio.html" class="on" aria-current="page">시공사례</a><a href="price.html">요금안내</a><a href="about.html">회사소개</a><a href="contact.html">문의</a><a href="location.html">서비스 지역</a><a href="notice.html">공지사항</a></nav>
 </header>
-<section class="hero" style="padding:20px 0 18px;">
+<main><section class="phero"><div class="wrap"><span class="eyebrow">REAL CASES</span><h1>말보다 사진으로 보여드립니다</h1><p class="lead">정도클린이 직접 작업한 실제 현장의 청소 전 · 후 모습입니다.</p><div class="anchors" role="group" aria-label="공간별 보기"><button class="f-tab" data-filter="all" aria-pressed="true">전체 9</button><button class="f-tab" data-filter="bath" aria-pressed="false">욕실 5</button><button class="f-tab" data-filter="kitchen" aria-pressed="false">주방 1</button><button class="f-tab" data-filter="fridge" aria-pressed="false">냉장고 1</button><button class="f-tab" data-filter="balcony" aria-pressed="false">베란다 2</button></div></div></section>
+<section class="sec"><div class="wrap"><div class="pf-grid"><article class="pf" data-cat="bath"><button type="button" data-zoom="샤워부스 배수구 · 머리카락 · 물때 · 찌든때 제거" aria-label="샤워부스 배수구 크게 보기"><img src="cases/case-01-shower-drain.jpg" alt="샤워부스 배수구 청소 전후 비교" width="1208" height="750" loading="lazy"></button><div class="bd"><div><h3>샤워부스 배수구</h3><p>머리카락 · 물때 · 찌든때 제거</p></div><span class="tagpill">욕실</span></div></article><article class="pf" data-cat="bath"><button type="button" data-zoom="세면대 아래 바닥 줄눈 · 줄눈 곰팡이 · 배수구 오염 제거" aria-label="세면대 아래 바닥 줄눈 크게 보기"><img src="cases/case-02-floor-grout.jpg" alt="세면대 아래 바닥 줄눈 청소 전후 비교" width="1208" height="750" loading="lazy"></button><div class="bd"><div><h3>세면대 아래 바닥 줄눈</h3><p>줄눈 곰팡이 · 배수구 오염 제거</p></div><span class="tagpill">욕실</span></div></article><article class="pf" data-cat="bath"><button type="button" data-zoom="변기 주변 · 변기 황변 · 바닥 이물질 제거" aria-label="변기 주변 크게 보기"><img src="cases/case-03-toilet.jpg" alt="변기 주변 청소 전후 비교" width="1208" height="750" loading="lazy"></button><div class="bd"><div><h3>변기 주변</h3><p>변기 황변 · 바닥 이물질 제거</p></div><span class="tagpill">욕실</span></div></article><article class="pf" data-cat="bath"><button type="button" data-zoom="욕실 전체 · 변기 · 세면대 · 바닥 줄눈" aria-label="욕실 전체 크게 보기"><img src="cases/case-04-bathroom.jpg" alt="욕실 전체 청소 전후 비교" width="1208" height="750" loading="lazy"></button><div class="bd"><div><h3>욕실 전체</h3><p>변기 · 세면대 · 바닥 줄눈</p></div><span class="tagpill">욕실</span></div></article><article class="pf" data-cat="bath"><button type="button" data-zoom="욕실 세면대 · 도기 물때 · 수전 광택" aria-label="욕실 세면대 크게 보기"><img src="cases/case-05-washbasin.jpg" alt="욕실 세면대 청소 전후 비교" width="1208" height="750" loading="lazy"></button><div class="bd"><div><h3>욕실 세면대</h3><p>도기 물때 · 수전 광택</p></div><span class="tagpill">욕실</span></div></article><article class="pf" data-cat="kitchen"><button type="button" data-zoom="주방 싱크볼 · 스테인리스 물자국 · 얼룩 제거" aria-label="주방 싱크볼 크게 보기"><img src="cases/case-06-kitchen-sink.jpg" alt="주방 싱크볼 청소 전후 비교" width="1208" height="750" loading="lazy"></button><div class="bd"><div><h3>주방 싱크볼</h3><p>스테인리스 물자국 · 얼룩 제거</p></div><span class="tagpill">주방</span></div></article><article class="pf" data-cat="fridge"><button type="button" data-zoom="냉장고 내부 · 선반 · 야채칸 얼룩 제거" aria-label="냉장고 내부 크게 보기"><img src="cases/case-07-fridge.jpg" alt="냉장고 내부 청소 전후 비교" width="1208" height="750" loading="lazy"></button><div class="bd"><div><h3>냉장고 내부</h3><p>선반 · 야채칸 얼룩 제거</p></div><span class="tagpill">냉장고</span></div></article><article class="pf" data-cat="balcony"><button type="button" data-zoom="베란다 바닥 · 먼지 · 이물질 · 벽 오염 제거" aria-label="베란다 바닥 크게 보기"><img src="cases/case-08-balcony-floor.jpg" alt="베란다 바닥 청소 전후 비교" width="1208" height="750" loading="lazy"></button><div class="bd"><div><h3>베란다 바닥</h3><p>먼지 · 이물질 · 벽 오염 제거</p></div><span class="tagpill">베란다</span></div></article><article class="pf" data-cat="balcony"><button type="button" data-zoom="베란다 통로 · 바닥 얼룩 · 먼지 제거" aria-label="베란다 통로 크게 보기"><img src="cases/case-09-balcony-hall.jpg" alt="베란다 통로 청소 전후 비교" width="1208" height="750" loading="lazy"></button><div class="bd"><div><h3>베란다 통로</h3><p>바닥 얼룩 · 먼지 제거</p></div><span class="tagpill">베란다</span></div></article></div><p class="pf-note">사진을 누르면 크게 볼 수 있습니다</p></div></section>
+</main>
+<section class="cta">
   <div class="wrap">
-    <h1 style="font-size:20px;">시공사례</h1>
-    <p>정도클린이 직접 작업한 실제 현장의 청소 전 · 후 모습입니다</p>
-  </div>
-</section>
-<div class="wrap">
-  <div class="case-tabs" role="tablist" aria-label="공간별 보기">
-    <button class="case-tab active" data-filter="all">전체</button>
-    <button class="case-tab" data-filter="bath">욕실</button>
-    <button class="case-tab" data-filter="kitchen">주방</button>
-    <button class="case-tab" data-filter="fridge">냉장고</button>
-    <button class="case-tab" data-filter="balcony">베란다</button>
-  </div>
-
-  <div class="case-grid">
-    <article class="case-card" data-cat="bath">
-      <button type="button" aria-label="샤워부스 배수구 크게 보기"><img src="portfolio/case-01-shower-drain.jpg" alt="샤워부스 배수구 청소 전후 비교" loading="lazy"></button>
-      <div class="case-foot"><div><h3>샤워부스 배수구</h3><p>머리카락 · 물때 · 찌든때 제거</p></div><span class="case-tag">욕실</span></div>
-    </article>
-    <article class="case-card" data-cat="bath">
-      <button type="button" aria-label="세면대 아래 바닥 줄눈 크게 보기"><img src="portfolio/case-02-floor-grout.jpg" alt="세면대 아래 바닥 줄눈 청소 전후 비교" loading="lazy"></button>
-      <div class="case-foot"><div><h3>세면대 아래 바닥 줄눈</h3><p>줄눈 곰팡이 · 배수구 오염 제거</p></div><span class="case-tag">욕실</span></div>
-    </article>
-    <article class="case-card" data-cat="bath">
-      <button type="button" aria-label="변기 주변 크게 보기"><img src="portfolio/case-03-toilet.jpg" alt="변기 주변 청소 전후 비교" loading="lazy"></button>
-      <div class="case-foot"><div><h3>변기 주변</h3><p>변기 황변 · 바닥 이물질 제거</p></div><span class="case-tag">욕실</span></div>
-    </article>
-    <article class="case-card" data-cat="bath">
-      <button type="button" aria-label="욕실 전체 크게 보기"><img src="portfolio/case-04-bathroom.jpg" alt="욕실 전체 청소 전후 비교" loading="lazy"></button>
-      <div class="case-foot"><div><h3>욕실 전체</h3><p>변기 · 세면대 · 바닥 줄눈</p></div><span class="case-tag">욕실</span></div>
-    </article>
-    <article class="case-card" data-cat="bath">
-      <button type="button" aria-label="욕실 세면대 크게 보기"><img src="portfolio/case-05-washbasin.jpg" alt="욕실 세면대 청소 전후 비교" loading="lazy"></button>
-      <div class="case-foot"><div><h3>욕실 세면대</h3><p>도기 물때 · 수전 광택</p></div><span class="case-tag">욕실</span></div>
-    </article>
-    <article class="case-card" data-cat="kitchen">
-      <button type="button" aria-label="주방 싱크볼 크게 보기"><img src="portfolio/case-06-kitchen-sink.jpg" alt="주방 싱크볼 청소 전후 비교" loading="lazy"></button>
-      <div class="case-foot"><div><h3>주방 싱크볼</h3><p>스테인리스 물자국 · 얼룩 제거</p></div><span class="case-tag">주방</span></div>
-    </article>
-    <article class="case-card" data-cat="fridge">
-      <button type="button" aria-label="냉장고 내부 크게 보기"><img src="portfolio/case-07-fridge.jpg" alt="냉장고 내부 청소 전후 비교" loading="lazy"></button>
-      <div class="case-foot"><div><h3>냉장고 내부</h3><p>선반 · 야채칸 얼룩 제거</p></div><span class="case-tag">냉장고</span></div>
-    </article>
-    <article class="case-card" data-cat="balcony">
-      <button type="button" aria-label="베란다 바닥 크게 보기"><img src="portfolio/case-08-balcony-floor.jpg" alt="베란다 바닥 청소 전후 비교" loading="lazy"></button>
-      <div class="case-foot"><div><h3>베란다 바닥</h3><p>먼지 · 이물질 · 벽 오염 제거</p></div><span class="case-tag">베란다</span></div>
-    </article>
-    <article class="case-card" data-cat="balcony">
-      <button type="button" aria-label="베란다 통로 크게 보기"><img src="portfolio/case-09-balcony-hall.jpg" alt="베란다 통로 청소 전후 비교" loading="lazy"></button>
-      <div class="case-foot"><div><h3>베란다 통로</h3><p>바닥 얼룩 · 먼지 제거</p></div><span class="case-tag">베란다</span></div>
-    </article>
-  </div>
-  <p class="case-note">사진을 누르면 크게 볼 수 있습니다</p>
-
-  <div class="case-cta">
-    <h2>우리 집도 이렇게 바꿔드릴게요</h2>
-    <p>현장 상태를 보고 정확한 견적을 안내해 드립니다</p>
-    <div class="btns">
-      <a class="btn btn-primary" href="tel:010-8209-6615">전화 상담</a>
-      <a class="btn btn-outline" href="contact.html">문의 남기기</a>
+    <div class="cta-box">
+      <div>
+        <h2>청소 견적,<br>전화 한 통이면 충분합니다</h2>
+        <p>공간 종류와 평수만 알려주시면 바로 상담해 드립니다.</p>
+        <div class="cta-meta"><span>상담 07:00 ~ 23:00</span><span>안성 · 평택 · 천안</span><span>그 외 지역 문의</span></div>
+      </div>
+      <div>
+        <a class="num tel" href="tel:010-8209-6615">010-8209-6615</a>
+        <div class="acts">
+          <a class="btn btn-w tel" href="tel:010-8209-6615">전화 걸기</a>
+          <a class="btn btn-o sms" href="sms:010-8209-6615">문자 보내기</a>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="사진 크게 보기">
-  <button class="lightbox-close" id="lightboxClose" aria-label="닫기">×</button>
-  <img id="lightboxImg" src="" alt="">
-</div>
-<footer class="site-footer">
-  <div class="wrap">정도클린 · 문의전화 <a href="tel:010-8209-6615" style="color:#5B6B7D;font-weight:700;">010-8209-6615</a><br>© Jungdo Clean. All rights reserved.</div>
+</section>
+<footer class="ft">
+  <div class="wrap">
+    <div class="top">
+      <img src="assets/logo-h.png" alt="정도클린" width="713" height="112" loading="lazy">
+      <nav aria-label="하단 메뉴">
+        <a href="service.html">서비스</a><a href="portfolio.html">시공사례</a><a href="price.html">요금안내</a><a href="about.html">회사소개</a><a href="contact.html">문의</a><a href="location.html">서비스 지역</a><a href="notice.html">공지사항</a>
+      </nav>
+    </div>
+    <div class="info">
+      <span>상호 정도클린</span>
+      <span>문의 <a class="tel" href="tel:010-8209-6615"><b>010-8209-6615</b></a></span>
+      <span>상담 07:00 ~ 23:00</span>
+      <span>서비스 지역 안성 · 평택 · 천안 (그 외 지역 문의)</span>
+      <span>결제 계좌이체</span>
+    </div>
+    <p class="copy">© Jungdo Clean. All rights reserved.</p>
+  </div>
 </footer>
-<div class="footer-cta">
-  <a class="btn btn-primary" href="tel:010-8209-6615">📞 010-8209-6615 전화 상담</a>
+<div class="mbar">
+  <a class="btn btn-ghost sms" href="sms:010-8209-6615">문자 문의</a>
+  <a class="btn btn-primary tel" href="tel:010-8209-6615">전화 상담하기</a>
 </div>
-<script>
-  document.getElementById('navToggle').addEventListener('click', function () {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  });
-  // 공간별 필터
-  var tabs = document.querySelectorAll('.case-tab');
-  var cards = document.querySelectorAll('.case-card');
-  tabs.forEach(function (t) {
-    t.addEventListener('click', function () {
-      tabs.forEach(function (x) { x.classList.remove('active'); });
-      t.classList.add('active');
-      var f = t.getAttribute('data-filter');
-      cards.forEach(function (c) {
-        c.style.display = (f === 'all' || c.getAttribute('data-cat') === f) ? '' : 'none';
-      });
-    });
-  });
-  // 크게 보기
-  var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lightboxImg');
-  document.querySelectorAll('.case-card button').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var img = b.querySelector('img');
-      lbImg.src = img.src; lbImg.alt = img.alt; lb.classList.add('open');
-    });
-  });
-  function closeLb() { lb.classList.remove('open'); lbImg.src = ''; }
-  document.getElementById('lightboxClose').addEventListener('click', closeLb);
-  lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
-</script>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="사진 크게 보기"><button class="lb-close" id="lbClose" aria-label="닫기">×</button><img id="lbImg" alt=""><p class="cap" id="lbCap"></p></div>
+<script src="assets/site.js" defer></script>
 </body>
 </html>
