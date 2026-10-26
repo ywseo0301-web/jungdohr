@@ -359,3 +359,14 @@ section{padding:96px 0}
   .nt .kind{grid-column:1/-1;justify-self:start}
 }
 @media (max-width:560px){.chk{grid-template-columns:1fr}}
+
+/* tap targets (2026-10-26) */
+.logo{display:inline-flex;align-items:center;min-height:44px}
+.ft nav{gap:0 18px}
+.ft nav a{display:inline-flex;align-items:center;min-height:44px}
+p a.tel,.ft .info a.tel{display:inline-flex;align-items:center;min-height:44px}
+.mnav a{min-height:44px}
+.pf-cta{margin:40px 0 0;text-align:center}
+.pf-cta p{font-weight:700;font-size:18px;margin-bottom:14px}
+.pf-cta .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.ft .info{align-items:center}
