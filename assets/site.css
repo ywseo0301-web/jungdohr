@@ -372,3 +372,6 @@ p a.tel,.ft .info a.tel{display:inline-flex;align-items:center;min-height:44px}
 .ft .info{align-items:center}
 
 @media (min-width:1025px){.pr-grid{grid-template-columns:repeat(5,1fr);gap:14px}}
+
+@media (min-width:1025px){.sv-grid{grid-template-columns:repeat(5,1fr);gap:14px}.sv{padding:26px 20px}.sv h3{font-size:20px}}
+@media (max-width:1024px){.sv-grid>.sv:last-child:nth-child(odd){grid-column:1/-1}}
