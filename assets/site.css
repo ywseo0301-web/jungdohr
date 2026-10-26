@@ -387,3 +387,12 @@ p a.tel,.ft .info a.tel{display:inline-flex;align-items:center;min-height:44px}
 }
 @media (max-width:1024px){.pr-grid>.pr:last-child:nth-child(odd){grid-column:1/-1}}
 @media (max-width:760px){.pr .desc{min-height:0}.pr .amt{min-height:0}}
+
+/* price cards: rows locked across cards (subgrid) */
+@media (min-width:1025px){
+  .pr-grid>.pr{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:0;gap:0}
+  .pr-grid>.pr h3{margin-bottom:6px}
+  .pr-grid>.pr .desc{min-height:0;margin-bottom:0}
+  .pr-grid>.pr .amt{min-height:0;margin:14px 0 12px;align-self:start}
+  .pr-grid{grid-auto-rows:auto}
+}
