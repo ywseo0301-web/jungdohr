@@ -375,3 +375,15 @@ p a.tel,.ft .info a.tel{display:inline-flex;align-items:center;min-height:44px}
 
 @media (min-width:1025px){.sv-grid{grid-template-columns:repeat(5,1fr);gap:14px}.sv{padding:26px 20px}.sv h3{font-size:20px}}
 @media (max-width:1024px){.sv-grid>.sv:last-child:nth-child(odd){grid-column:1/-1}}
+
+/* price cards alignment (5 cards) */
+.pr .desc{min-height:3.3em}
+.pr .amt{min-height:62px;align-items:baseline;flex-wrap:nowrap}
+.pr ul{flex:1}
+@media (min-width:1025px){
+  .pr-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+  .pr{padding:26px 20px}
+  .pr .amt b{font-size:26px}
+}
+@media (max-width:1024px){.pr-grid>.pr:last-child:nth-child(odd){grid-column:1/-1}}
+@media (max-width:760px){.pr .desc{min-height:0}.pr .amt{min-height:0}}
