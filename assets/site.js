@@ -13,6 +13,12 @@
   // header border on scroll
   var hd=document.getElementById('hd');
   if(hd){window.addEventListener('scroll',function(){hd.classList.toggle('scrolled',window.scrollY>8)},{passive:true});}
+  // sms: prefill inquiry form (iOS uses '&', others use '?')
+  var SMS_BODY=['[정도클린 예약문의]','1. 지역: ','2. 평수: ','3. 청소 형태: (입주/이사/사이/가정/사무실·상가)','4. 희망 날짜: (여러 날짜 가능)','5. 희망 시간: (오전/오후/이사 시간 등)','6. 추가 요청: (외부 유리창·심한 곰팡이·스티커·실리콘 제거·새집증후군 시공)','7. 문의사항: '].join('\n');
+  var ua=navigator.userAgent||'';
+  var isIOS=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  var smsHref='sms:'+PHONE+(isIOS?'&':'?')+'body='+encodeURIComponent(SMS_BODY);
+  document.querySelectorAll('a.sms').forEach(function(el){el.setAttribute('href',smsHref);});
   // PC: phone/sms links copy the number
   var toast=document.getElementById('toast'),tm;
   function show(msg){if(!toast)return;toast.textContent=msg;toast.classList.add('show');clearTimeout(tm);tm=setTimeout(function(){toast.classList.remove('show')},2600);}
