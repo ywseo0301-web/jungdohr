@@ -404,3 +404,5 @@ p a.tel,.ft .info a.tel{display:inline-flex;align-items:center;min-height:44px}
   .pr-grid>.pr .amt{min-height:0;margin:14px 0 12px;align-self:start}
   .pr-grid{grid-auto-rows:auto}
 }
+
+.pf.wide{grid-column:1/-1}.pf.wide img{aspect-ratio:1208/453}
